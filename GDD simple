@@ -1,0 +1,71 @@
+Nombre clave: Crystal Wars 
+
+Identidad del Juego / Mantra:  
+
+Juego de cartas por turnos en el que tienes que formar un mazo y reducir los puntos del rival a 0. 
+
+Pilares del Diseño: 
+
+Partidas rápidas y cortas. Estratégico. Mucha rejugabilidad. 
+
+Resumen de Género/Historia/Mecánicas: 
+
+El proyecto es un videojuego de cartas por turnos en el que cada jugador empieza con una mano de 5 cartas cada uno. Cuando inicia el turno, el jugador debe robar una carta del mazo y se comenzará la fase de invocación. En este punto habrá tres tipos de cartas: cartas de maná, cartas de hechizo y cartas de invocación. Las primeras estarán en todos los mazos y servirán para darnos puntos de maná para poder jugar las otras dos. Los hechizos tendrán un efecto activo en la partida, ya sea para restar puntos al enemigo rival o para ganar maná o puntos propios. Por último, las invocaciones tendrán un efecto pasivo que actuará cada turno que estén en el terreno. [REVISABLE] Sólo se podrán cambiar/eliminar por el efecto de algún hechizo o invocación; o siendo sustituida por otra invocación. Ambos jugadores empiezan la partida con 15 puntos y se acabará cuando alguno de los jugadores pierda todos sus puntos. 
+
+Se podrá sacar hasta un máximo de 2 invocaciones a la vez. Por otro lado, habrá un límite de cartas en la mano, siendo este 7 (no incluido), en el momento en el que se tengan más, se deberá descartar alguna (o varias) hasta volver a tener el máximo permitido (6). Una vez se haya usado una carta de maná, un hechizo o se elimine una invocación, éstas irán al cementerio. Si se acaban las cartas del mazo y no se ha acabado la partida, todas las cartas que hay en el cementerio, se barajarán y volverán al mazo. 
+
+Se podrá elegir un mazo, de un total de 4, y cada uno de ellos estará más enfocado hacia un tipo de juego distinto (más rápido, más curación, más daño...) y se podrá completar con una serie de cartas genéricas que permitirán cierta personalización de los mazos. 
+
+Para acabar, cabe mencionar una última mecánica llamada “Última baza” que sólo se podrá usar una vez por partida y no se podrá bloquear por ningún efecto de hechizo o pasiva. Al activarse, el jugador robará 3 cartas, no tendrá límite de uso de cartas de maná y todas las cartas que consuman maná ven su coste reducido en 1. 
+
+ 
+
+En cuanto a la historia, ésta será muy básica ya que no se quiere interferir en lo principal del juego que son las partidas de cartas. La historia consistirá en una serie de dioses que se han declarado guerras entre ellos. Los dioses representarán distintos elementos como el fuego, el agua o el viento. Estos dioses serán la carta principal o representativa del mazo y en torno a la que girará toda la mecánica de dicho deck. 
+
+El lore del juego se explicaría al inicio, de forma breve y concisa para que se tenga constancia de ella, pero sin que haya que esperar mucho para comenzar a jugar.  
+
+Posible tablero 
+
+ 
+
+Características:  
+
+A diferencia de la gran mayoría de juegos de cartas, el cementerio se reciclará constantemente pasando a ser el mazo cuando éste se acabe 
+
+El mazo tendrá entre 15 y 20 cartas 
+
+Los hechizos se podrán invocar en cualquier momento si es el turno de uno 
+
+No se podrá intervenir de ninguna manera en el turno de otro 
+
+Otro factor diferenciador es la “Última baza”, que sólo se puede usar una vez por partida para cada jugador. Este efecto nos permitirá robar varias cartas seguidas y no habrá límite de maná 
+
+Cada deck tendrá una carta representativa que irá de acuerdo con la historia del juego 
+
+Interfaz:  
+
+Los jugadores verán su propia mano y el estado del tablero de ambos jugadores en todo momento. No podrán ver su mazo o cementerio durante la partida. También podrán leer los efectos de cada carta y el número de maná cargado que se tiene. 
+
+ 
+
+Estilo de Arte:  
+
+ 
+
+ 
+
+Música/Sonido:  
+
+La música intentará representar la epicidad de la lucha entre dioses, pero sin ser una molestia para los jugadores debido a que este es un juego que posee cierto componente de estrategia para poder ganar, por lo que la música no debe afectar a este elemento. Esta es una lista de posibles canciones: 
+
+2-Hours Epic Music Mix | THE POWER OF EPIC MUSIC - Full Mix Vol. 2 
+
+
+
+Hoja de ruta del desarrollo / Lanzamiento:  
+
+Plataformas: itchi.io y navegador (Mozilla Firefox y Chrome) y tablets y móviles. 
+
+Audiencia:  
+
+Debido a su planteamiento de partidas rápidas, con multijugador y su gran versatilidad en cuanto a plataformas disponibles, la audiencia a la que apela el juego es cualquier persona que disfrute de juegos del mismo género. No posee componentes violentos y adultos, por lo que es apto para infantes, pero también puede resultar interesante para personas de más edad que estén ocupadas y solo puedan jugar unos minutos durante el metro, por ejemplo. 
