@@ -2,6 +2,7 @@ class Crystal{
     constructor(health){
         this.health = health;
         this.mana;
+        
     }
 
     damage(points){
