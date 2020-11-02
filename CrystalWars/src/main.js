@@ -8,7 +8,7 @@ window.onload = function() {
         },
         type: Phaser.AUTO,
         pixelArt: true,
-        scene: [preload, mainMenu]
+        scene: [boot,preload, mainMenu]
     };
 
     var game = new Phaser.Game(gameConfig);
