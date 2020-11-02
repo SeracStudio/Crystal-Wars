@@ -5,6 +5,6 @@ class mainMenu extends Phaser.Scene {
 
     create() {
         this.add.image(100, 100, 'placeHolder');
-        this.scene.start('game');
+        this.scene.start('gameP');
     }
 }

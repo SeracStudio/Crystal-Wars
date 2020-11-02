@@ -2,7 +2,7 @@ class Crystal{
     constructor(health){
         this.health = health;
         this.mana;
-        
+
     }
 
     damage(points){
@@ -17,7 +17,7 @@ class Crystal{
         this.mana += points;
     }
 
-    removeMana(points{
+    removeMana(points){
         this.mana -= points;
-    })
+    }
 }

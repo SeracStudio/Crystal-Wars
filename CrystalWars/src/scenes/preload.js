@@ -6,6 +6,7 @@ class preload extends Phaser.Scene{
     preload(){
         this.load.image('placeHolder', 'assets/PlaceHolder.png');
         this.load.image('board', 'assets/images/board.png');
+        this.load.image('card', 'assets/images/card.png');
     }
 
     create(){
