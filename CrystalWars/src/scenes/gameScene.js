@@ -1,6 +1,3 @@
-nCards = 5;
-var cartas = [];
-
 class gameScene extends Phaser.Scene {
 
     constructor() {
@@ -8,14 +5,22 @@ class gameScene extends Phaser.Scene {
     }
 
     create() {
+
+        this.nCards = 10;
+        this.cartas = [];
+
         var board = this.add.image(0, 0, 'board');
         Phaser.Display.Align.In.Center(board, this.add.zone(320, 180, 640, 360));
 
-        for (let index = 0; index < nCards; index++) {
-            cartas[index] = this.add.sprite(0, 0, 'card').setInteractive();
+        var id = 1;
+
+        for (let index = 0; index < this.nCards; index++) {
+            var card = new Carta(this,id);
+            card.setInteractive();
+            this.cartas.push(card);
         }
 
-        this.input.setDraggable(cartas);
+        this.input.setDraggable(this.cartas);
 
         this.resizeCards();
 
@@ -28,10 +33,12 @@ class gameScene extends Phaser.Scene {
 
         this.input.on('gameobjectover', function (pointer, gameObject) {
             gameObject.y = 343-25;
+            gameObject.depth = 100;
         });
     
         this.input.on('gameobjectout', function (pointer, gameObject) {
             gameObject.y = 343;
+            gameObject.depth = 0;
         });
     }
 
@@ -46,22 +53,23 @@ class gameScene extends Phaser.Scene {
     resizeCards() {
         var ancho = 640;
         var anchoCarta = 56;
-        var anchoCartas = cartas.length * anchoCarta;
+        var anchoCartas = this.cartas.length * anchoCarta;
         var cartaActual = (ancho / 2) - (anchoCartas / 2);
 
-        for (let index = 0; index < cartas.length; index++) {
-            cartas[index].x = cartaActual + 28;
-            cartas[index].y = 343;
+        for (let index = 0; index < this.cartas.length; index++) {
+            this.cartas[index].x = cartaActual + 28;
+            this.cartas[index].y = 343;
             cartaActual += anchoCarta;
         }
     }
 
     invocar() {
-        for (let index = 0; index < cartas.length; index++) {
-            if(cartas[index].y < 200){
-                cartas[index].setInteractive(false);
-                cartas[index].destroy();
-                cartas.splice(index,1);
+        for (let index = 0; index < this.cartas.length; index++) {
+            if(this.cartas[index].y < 200){
+                alert(this.cartas[index].id);
+                this.cartas[index].setInteractive(false);
+                this.cartas[index].destroy();
+                this.cartas.splice(index,1);
             }
         }
         this.resizeCards();
