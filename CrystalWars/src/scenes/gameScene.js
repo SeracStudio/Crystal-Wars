@@ -17,22 +17,33 @@ class gameScene extends Phaser.Scene {
 
         this.input.setDraggable(cartas);
 
-        this.input.on('drag', function (pointer, gameObject, dragX, dragY) {
+        this.resizeCards();
 
+        this.input.on('drag', function (pointer, gameObject, dragX, dragY) {
             gameObject.x = dragX;
             gameObject.y = dragY;
-
         });
 
-        this.input.on('dragend', function (pointer, gameObject) {
+        this.input.on('dragend', gameObject =>  this.cardReleased(gameObject));
 
-            gameObject.clearTint();
+        this.input.on('gameobjectover', function (pointer, gameObject) {
+            gameObject.y = 343-25;
         });
-
-        this.resizeCards(cartas);
+    
+        this.input.on('gameobjectout', function (pointer, gameObject) {
+            gameObject.y = 343;
+        });
     }
 
-    resizeCards(cartas) {
+    cardReleased(handCard){
+        if(handCard.y<200){
+            this.invocar();
+        }else{
+            this.resizeCards();
+        }
+    }
+
+    resizeCards() {
         var ancho = 640;
         var anchoCarta = 56;
         var anchoCartas = cartas.length * anchoCarta;
@@ -40,23 +51,19 @@ class gameScene extends Phaser.Scene {
 
         for (let index = 0; index < cartas.length; index++) {
             cartas[index].x = cartaActual + 28;
-            cartas[index].y = 319;
+            cartas[index].y = 343;
             cartaActual += anchoCarta;
         }
     }
 
-    update() {
-        //comprobar si la carta se ha usado
+    invocar() {
         for (let index = 0; index < cartas.length; index++) {
-            if(cartas[index].y < 100){
-                this.invocar(index);
+            if(cartas[index].y < 200){
+                cartas[index].setInteractive(false);
+                cartas[index].destroy();
+                cartas.splice(index,1);
             }
         }
-    }
-
-    invocar(index) {
-        alert("alert");
-        cartas[index].setInteractive(false);
-        cartas.splice(index,1);
+        this.resizeCards();
     }
 }
