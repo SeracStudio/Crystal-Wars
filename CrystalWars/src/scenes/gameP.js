@@ -6,18 +6,19 @@ class gameP extends Phaser.Scene {
 
     create() {
 
-        this.nCards = 10;
+        this.nCards = 6;
         this.cartas = [];
 
         var board = this.add.image(0, 0, 'board');
         Phaser.Display.Align.In.Center(board, this.add.zone(320, 180, 640, 360));
 
-        var id = 1;
+        var id = 0;
 
         for (let index = 0; index < this.nCards; index++) {
             var card = new Carta(this,id);
             card.setInteractive();
             this.cartas.push(card);
+            id++;
         }
 
         this.input.setDraggable(this.cartas);
