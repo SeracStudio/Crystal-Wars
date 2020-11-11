@@ -30,17 +30,25 @@ class gameP extends Phaser.Scene {
             gameObject.y = dragY;
         });
 
-        this.input.on('dragend', gameObject =>  this.cardReleased(gameObject));
+        this.input.on('dragend', function(pointer, handCard){
+            this.cardReleased(handCard);
+        },this);
 
         this.input.on('gameobjectover', function (pointer, gameObject) {
             gameObject.y = 343-25;
-            gameObject.depth = 100;
-        });
+            gameObject.depth = 0;
+            this.showCardDescription(gameObject.cardId);
+        },this);
     
         this.input.on('gameobjectout', function (pointer, gameObject) {
             gameObject.y = 343;
             gameObject.depth = 0;
-        });
+            this.hideCardDescription();
+        },this);
+
+        this.cardsInfo = this.cache.json.get('info');
+
+        this.description = this.add.text(0, 0, "");
     }
 
     cardReleased(handCard){
@@ -67,12 +75,20 @@ class gameP extends Phaser.Scene {
     invocar() {
         for (let index = 0; index < this.cartas.length; index++) {
             if(this.cartas[index].y < 200){
-                alert(this.cartas[index].id);
+                alert(this.cartas[index].cardId);
                 this.cartas[index].setInteractive(false);
                 this.cartas[index].destroy();
                 this.cartas.splice(index,1);
             }
         }
         this.resizeCards();
+    }
+
+    showCardDescription(id){
+        var description = this.cardsInfo[id].description;
+        this.description.text = description;
+    }
+    hideCardDescription(){
+        this.description.text = "";
     }
 }

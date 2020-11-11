@@ -13,6 +13,7 @@ class preload extends Phaser.Scene{
         this.load.image('menuButton','assets/images/menuButton.png')
         this.load.image('mainMenuBackground','assets/images/mainMenuBackground.png')
         this.load.spritesheet('cards', 'assets/spritesheets/Cards.png', { frameWidth: 56, frameHeight: 82 });
+        this.load.json('info','assets/JSONinfo/CardsInfo.json')
     }
 
     create(){
