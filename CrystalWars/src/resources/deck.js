@@ -17,4 +17,18 @@ class Deck{
         }
         return drawnCards;
     }
+
+    setDeckType(dType,scene){
+      scene.resizeCards();
+      for(let i=(dType-1)*10;i<dType*10;i++){
+        var card=new Carta(scene,i)
+        if(dType==5){
+          card.setInteractive();
+        }
+        this.deck.push(card);
+        if(dType==5 && i==47){
+          break;
+        }
+      }
+    }
 }

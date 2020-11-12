@@ -36,7 +36,7 @@ class gameP extends Phaser.Scene {
             gameObject.y = 343-25;
             gameObject.depth = 100;
         });
-    
+
         this.input.on('gameobjectout', function (pointer, gameObject) {
             gameObject.y = 343;
             gameObject.depth = 0;
