@@ -8,7 +8,7 @@ window.onload = function() {
         },
         type: Phaser.AUTO,
         pixelArt: true,
-        scene: [boot,preload, main_menu, gameP, creditsScene, optionsScene, deckScene]
+        scene: [boot,preload, main_menu, gameP, creditsScene, optionsScene, deckScene, gameOverScene]
     };
 
     var game = new Phaser.Game(gameConfig);
