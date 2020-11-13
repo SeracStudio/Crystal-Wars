@@ -130,6 +130,7 @@ class Peek extends PlayerTargetEffect {
 		int randomCardNumber = new Random().nextInt(nHandCards) + 1;
 
 		solvedTarget.TURN_STATE.lastPeekedCard = solvedTarget._hand.GROUP.get(randomCardNumber);
+		SOURCE.owner.REGISTER.register("PEEK", solvedTarget.TURN_STATE.lastPeekedCard.ID.toString());
 	}
 }
 
@@ -153,7 +154,9 @@ class MoveCard extends PlayerTargetEffect {
 		super.activate();
 		solvedFrom = FROM.solve(solvedTarget);
 		solvedTo = TO.solve(solvedTarget);
-		solvedTo.addCard(solvedFrom.getCard(CARD));
+		Card movedCard = solvedFrom.getCard(CARD);
+		solvedTo.addCard(movedCard);
+		SOURCE.owner.REGISTER.register("MOVE", movedCard.ID.toString() + " " + FROM.toString() + " " + TO.toString());
 	}
 }
 
@@ -172,7 +175,9 @@ class Summon extends PlayerTargetEffect {
 	public void activate() {
 		super.activate();
 		if (FROM.solve(solvedTarget).contains(ID)) {
-			solvedTarget._field.addCard(FROM.solve(solvedTarget).getCard(ID));
+			Card summonedCard = FROM.solve(solvedTarget).getCard(ID);
+			solvedTarget._field.addCard(summonedCard);
+			SOURCE.owner.REGISTER.register("SUMMON", summonedCard.ID.toString());
 		}
 	}
 }

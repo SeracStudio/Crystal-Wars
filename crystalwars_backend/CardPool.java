@@ -22,12 +22,12 @@ public class CardPool{
 		ArrayList<Card> newDeck = new ArrayList<>();
 		String[] deckIDs = deck.split(" ");
 		for(String ID : deckIDs) {
-			newDeck.add(pull(CardCollection.get(Integer.parseInt(ID))));
+			newDeck.add(pullCard(CardCollection.get(Integer.parseInt(ID))));
 		}
 		return newDeck;
 	}
 	
-	public Card pull(CardCollection ID) {
+	public Card pullCard(CardCollection ID) {
 		try {
 			ByteArrayOutputStream bos = new ByteArrayOutputStream();
 			ObjectOutputStream oos = new ObjectOutputStream(bos);
@@ -40,7 +40,7 @@ public class CardPool{
 			ByteArrayInputStream bais = new ByteArrayInputStream(byteData);
 			return (Card) new ObjectInputStream(bais).readObject();
 		} catch (Exception e) {
-			System.out.println("ASD");
+			System.err.println("Carta no encontrada, error en creacion.");
 			return null;
 		}
 	}
@@ -300,7 +300,7 @@ public class CardPool{
 		c35.addEffect(c35_e1);
 		POOL.put(c35.ID, c35);
 
-		Card c36 = new Card(CardCollection.CHAMAN_DE_LA_MONTAÑA, CardType.SUMMONING, 1);
+		Card c36 = new Card(CardCollection.GUARDIAN_DE_BASALTO, CardType.SUMMONING, 1);
 		c36.addEffect(new Heal(EffectOn.DESTROY, Target.PLAYER, 2));
 		AddMana c36_e1 = new AddMana(EffectOn.DESTROY, Target.PLAYER, 1);
 		c36_e1.CONDITIONS.add(new CardPresentOn(Target.PLAYER, CardCollection.DOTON, CardSite.FIELD));

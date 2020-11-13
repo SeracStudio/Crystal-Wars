@@ -20,7 +20,8 @@ public class CrystalRoom {
 	ObjectMapper mapper = new ObjectMapper();
 	public String ROOM_ID;
 	private final int MAX_PLAYERS = 2;
-	private final AtomicInteger NUM_PLAYERS;
+	private final AtomicInteger NUM_PLAYERS = new AtomicInteger();
+	private final AtomicInteger READY_PLAYERS = new AtomicInteger();
 	private Player turnPlayer, waitPlayer;
 	private final Map<Integer, Player> PLAYERS = new ConcurrentHashMap<>();
 
@@ -31,11 +32,11 @@ public class CrystalRoom {
 	private BaseEffect currentEffect;
 
 	public CrystalRoom() {
-		this.NUM_PLAYERS = new AtomicInteger();
 		do {
 			ROOM_ID = generateRoomID();
 		} while (CrystalServer.SERVER.ROOMS.containsKey(ROOM_ID));
-		System.out.println(ROOM_ID);
+		
+		System.out.println("Room created: " + ROOM_ID);
 	}
 
 	private String generateRoomID() {
@@ -44,20 +45,26 @@ public class CrystalRoom {
 			roomID += (char) (new SecureRandom().nextInt('z' - 'a') + 'a');
 		}
 
+		roomID = "AAAAAA";
 		return roomID.toUpperCase();
 	}
 
 	public boolean addPlayer(Player player, String deck) {
-		int count = NUM_PLAYERS.getAndIncrement();
-		if (count >= MAX_PLAYERS) {
-			NUM_PLAYERS.getAndDecrement();
+		if (NUM_PLAYERS.getAndIncrement() >= MAX_PLAYERS) {
 			return false;
 		}
 
 		PLAYERS.put(player.ID, player);
 		PLAYERS.get(player.ID)._deck.addCards(CardPool.DATA.pullDeck(deck));
 
+		System.out.println(player.ID + " has joined room " + ROOM_ID);
+
 		return true;
+	}
+
+	public void playerReady() {
+		if(READY_PLAYERS.getAndIncrement() >= MAX_PLAYERS - 1)
+			startGame();
 	}
 	
 	public Collection<Player> getPlayers() {
@@ -65,6 +72,8 @@ public class CrystalRoom {
 	}
 
 	public void startGame() {
+		System.out.println("Starting game at room: " + ROOM_ID);
+		
 		turnPlayer = (Player) getPlayers().toArray()[0];
 		waitPlayer = (Player) getPlayers().toArray()[1];
 
@@ -76,15 +85,15 @@ public class CrystalRoom {
 
 		turnPlayer.draw(3);
 		waitPlayer.draw(4);
-		
-		//buildAndSendUpdateMsg();
+
+		buildAndSendUpdateMsg();
 	}
-	
+
 	public void buildAndSendUpdateMsg() {
 		ObjectNode json = mapper.createObjectNode();
 		ArrayNode updateArray = mapper.createArrayNode();
-		
-		for(PlayerRegister.Register reg : turnPlayer.REGISTER.getRegister()) {
+
+		for (PlayerRegister.Register reg : turnPlayer.REGISTER.getRegister()) {
 			ObjectNode update = mapper.createObjectNode();
 			update.put("id", turnPlayer.ID);
 			update.put("update", reg.update);
@@ -92,8 +101,8 @@ public class CrystalRoom {
 			updateArray.addPOJO(update);
 		}
 		turnPlayer.REGISTER.clear();
-		
-		for(PlayerRegister.Register reg : waitPlayer.REGISTER.getRegister()) {
+
+		for (PlayerRegister.Register reg : waitPlayer.REGISTER.getRegister()) {
 			ObjectNode update = mapper.createObjectNode();
 			update.put("id", waitPlayer.ID);
 			update.put("update", reg.update);
@@ -101,25 +110,26 @@ public class CrystalRoom {
 			updateArray.addPOJO(update);
 		}
 		waitPlayer.REGISTER.clear();
-		
+
 		json.put("event", "UPDATE");
 		json.putPOJO("updates", updateArray);
 
-		this.broadcast(json.toString());
+		if (!json.toString().isBlank())
+			this.broadcast(json.toString());
 	}
-	
+
 	public void broadcast(String message) {
 		for (Player player : getPlayers()) {
 			try {
 				player.SESSION.sendMessage(new TextMessage(message.toString()));
 			} catch (Throwable ex) {
-				System.err.println("Execption sending message to player " + player.SESSION.getId());
+				System.err.println("Exception sending message to player " + player.SESSION.getId());
 				ex.printStackTrace(System.err);
 				PLAYERS.remove(Integer.parseInt(player.SESSION.getId()));
 			}
 		}
-	}	
-	
+	}
+
 	public void chooseStartingPlayer() {
 		int firstPlayer = new SecureRandom().nextInt(2);
 		if (firstPlayer == 1) {
@@ -130,23 +140,27 @@ public class CrystalRoom {
 	}
 
 	public void switchTurn(Player player) {
-		if(player != turnPlayer)
+		if (player != turnPlayer)
 			return;
-		
+
 		activateEffectOn(EffectOn.TURN_END, CardSite.FIELD, turnPlayer);
 		activateEffectOn(EffectOn.TURN_END_GRAVEYARD, CardSite.GRAVEYARD, turnPlayer);
-		
+
+		turnPlayer.TURN_STATE.reset();
+		waitPlayer.TURN_STATE.reset();
+
 		Player auxPlayer = turnPlayer;
 		turnPlayer = waitPlayer;
 		waitPlayer = auxPlayer;
-		
-		activateEffectOn(EffectOn.TURN_START, CardSite.FIELD, turnPlayer);
-		
+
+		turnPlayer.REGISTER.register("END TURN", "");
+		waitPlayer.REGISTER.register("END TURN", "");
 		turnPlayer.draw(1);
-		
-		//buildAndSendUpdateMsg();
+		buildAndSendUpdateMsg();
+
+		activateEffectOn(EffectOn.TURN_START, CardSite.FIELD, turnPlayer);
 	}
-	
+
 	public boolean play(Player player, String cardID) {
 		if (player != turnPlayer || !solvingCard.getAndSet(true)) {
 			return false;
@@ -167,7 +181,12 @@ public class CrystalRoom {
 			}
 		}
 
+		if (player._hand.checkCard(ID).CARD_TYPE == CardType.SUMMONING && !player.TURN_STATE.canSummon) {
+			return false;
+		}
+
 		Card playedCard = player._hand.getCard(ID);
+		player.removeMana(playedCard.cost);
 
 		if (playedCard.CARD_TYPE == CardType.SUMMONING) {
 			player._field.addCard(playedCard);
@@ -178,7 +197,7 @@ public class CrystalRoom {
 			currentEffect = effect;
 			if (effect.checkConditions() && effect.EFFECT_ON == EffectOn.PLAY) {
 				if (effect.TARGET == Target.SELECT) {
-					try {					
+					try {
 						notifySelect(player);
 						solvingSelect.set(true);
 						effect.setSolvedTarget(SELECTOR.exchange(null));
@@ -225,12 +244,12 @@ public class CrystalRoom {
 			e.printStackTrace();
 		}
 	}
-	
+
 	public boolean select(Player player, String cardID) {
 		if (player != turnPlayer || !solvingSelect.get()) {
 			return false;
 		}
-		
+
 		CardCollection card = CardCollection.get(Integer.parseInt(cardID));
 		Card selectedCard = currentEffect.validateSelect(card);
 		if (selectedCard == null)
@@ -242,7 +261,7 @@ public class CrystalRoom {
 			System.err.println("Excepcion en SELECT");
 			e.printStackTrace();
 		}
-		
+
 		return true;
 	}
 
@@ -267,11 +286,12 @@ public class CrystalRoom {
 				}
 			}
 		}
-		
+
 		buildAndSendUpdateMsg();
 	}
 
 	public void solveCardTargets(Player self, Player enemy) {
+		self.ENEMY = enemy;
 		for (Card card : self._deck.GROUP) {
 			card.owner = self;
 			// Play Conditions

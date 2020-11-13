@@ -38,7 +38,8 @@ public class CrystalServer extends TextWebSocketHandler{
 
 	@Override
 	public void afterConnectionClosed(WebSocketSession session, CloseStatus status) throws Exception {
-		//IMPLEMENTAR
+		Player player = (Player) session.getAttributes().get(PLAYER_ATTRIBUTE);
+		PLAYERS.remove(player.ID);
 	}
 
 	@Override
@@ -75,12 +76,15 @@ public class CrystalServer extends TextWebSocketHandler{
 						msg.put("room", "FILLED");
 					} else {
 						msg.put("room", room.ROOM_ID);
-						room.startGame();
 					}
 				}
 				player.SESSION.sendMessage(new TextMessage(msg.toString()));
 				break;
 
+			case "READY":
+				ROOMS.get(node.get("room").asText()).playerReady();
+				break;
+				
 			case "PLAY":
 				msg.put("event", "PLAY");
 				if(!ROOMS.get(player.ROOM_ID).play(player, node.get("id").asText())) {			

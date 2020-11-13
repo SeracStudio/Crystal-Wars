@@ -31,6 +31,17 @@ public class CardGroup {
 		GROUP.remove(card);
 	}
 
+	public Card getCard(CardCollection ID) {
+		for (Card card : GROUP) {
+			if (card.ID == ID) {
+				GROUP.remove(card);
+				return card;
+			}
+		}
+
+		return null;
+	}
+	
 	public ArrayList<Card> getCards(int nCards) {
 		ArrayList<Card> drawnCards = new ArrayList<>();
 
@@ -43,6 +54,7 @@ public class CardGroup {
 		return drawnCards;
 	}
 
+
 	public ArrayList<Card> getAllCards() {
 		ArrayList<Card> drawnCards = new ArrayList<>();
 
@@ -52,18 +64,7 @@ public class CardGroup {
 
 		return drawnCards;
 	}
-
-	public Card getCard(CardCollection ID) {
-		for (Card card : GROUP) {
-			if (card.ID == ID) {
-				GROUP.remove(card);
-				return card;
-			}
-		}
-
-		return null;
-	}
-
+	
 	public Card getRandomTypeCard(CardType TYPE) {
 		for (Card card : GROUP) {
 			if (card.CARD_TYPE == TYPE) {
