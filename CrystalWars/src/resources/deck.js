@@ -21,7 +21,7 @@ class Deck{
     setDeckType(dType,scene){
       scene.resizeCards();
       for(let i=(dType-1)*10;i<dType*10;i++){
-        var card=new Carta(scene,i)
+        var card=new Card(scene,i)
         this.deck.push(card);
       }
     }

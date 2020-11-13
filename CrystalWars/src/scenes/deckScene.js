@@ -145,7 +145,7 @@ function showDeck(scene,dType){
   scene.resetDeck();
   scene.deck.setDeckType(dType,scene);
   for(let i=40;i<48;i++){
-    var card=new Carta(scene,i)
+    var card=new Card(scene,i)
     card.setInteractive();
     scene.neutralCards.push(card);
   }
