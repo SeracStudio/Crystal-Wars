@@ -5,8 +5,9 @@ class Card extends Phaser.GameObjects.Sprite {
         var y = 0;
 
         super(scene,x,y,"cards",id);
-        
+
         this.cardId = id;
+
         scene.add.existing(this);
     }
 }
