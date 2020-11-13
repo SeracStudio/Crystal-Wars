@@ -7,7 +7,13 @@ class Card extends Phaser.GameObjects.Sprite {
         super(scene,x,y,"cards",id);
 
         this.cardId = id;
+        this.isStatic = false;
 
         scene.add.existing(this);
+    }
+
+    setPos(newPos){
+        this.x = newPos[0];
+        this.y = newPos[1];
     }
 }

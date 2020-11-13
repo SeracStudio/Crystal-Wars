@@ -120,7 +120,7 @@ class deckScene extends Phaser.Scene {
 
   cardReleased(card){
     if(card.y>294 && this.neutralDeck.length<=2){
-      var cardAux=new Carta(this,card.id);
+      var cardAux=new Card(this,card.id);
       cardAux.deckNeutral=true;
       cardAux.setInteractive();
       this.neutralDeck.push(cardAux);

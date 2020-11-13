@@ -43,7 +43,7 @@ class main_menu extends Phaser.Scene {
 }
 
 function mouseClickPlay(aux){
-  aux.scene.start('gameP');
+  aux.scene.start('lobbyScene');
 }
 
 function mouseClickCredits(aux){

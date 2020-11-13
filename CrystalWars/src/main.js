@@ -8,9 +8,17 @@ window.onload = function() {
         },
         type: Phaser.AUTO,
         pixelArt: true,
-        scene: [boot,preload, main_menu, gameP, creditsScene, optionsScene, deckScene, gameOverScene]
+        scene: [boot, preload, main_menu, lobbyScene, gameP, creditsScene, optionsScene, deckScene, gameOverScene]
     };
 
-    var game = new Phaser.Game(gameConfig);
+    game = new Phaser.Game(gameConfig);
     window.focus();
+
+    // GLOBAL VARIABLES
+    game.global = {
+        DEBUG_MODE: true,
+        WS_CONNECTION: false,
+        socket: null,
+        myPlayer: new Object()
+    }
 }
