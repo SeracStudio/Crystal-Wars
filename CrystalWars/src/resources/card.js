@@ -5,7 +5,7 @@ class Carta extends Phaser.GameObjects.Sprite {
         var y = 0;
 
         super(scene,x,y,"cards",id);
-        
+
         this.id = id;
         scene.add.existing(this);
     }
