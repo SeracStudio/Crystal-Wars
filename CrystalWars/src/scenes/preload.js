@@ -23,6 +23,7 @@ class preload extends Phaser.Scene{
         this.load.image('earthDeck','assets/images/earthDeck.png')
         this.load.image('confirmDeckButton','assets/images/confirmDeckButton.png')
         this.load.spritesheet('cards', 'assets/spritesheets/Cards.png', { frameWidth: 56, frameHeight: 82 });
+        this.load.json('info','assets/JSONinfo/CardsInfo.json')
     }
 
     create(){

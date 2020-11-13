@@ -1,4 +1,4 @@
-class Carta extends Phaser.GameObjects.Sprite {
+class Card extends Phaser.GameObjects.Sprite {
     constructor(scene,id){
 
         var x = 0;
@@ -6,7 +6,8 @@ class Carta extends Phaser.GameObjects.Sprite {
 
         super(scene,x,y,"cards",id);
 
-        this.id = id;
+        this.cardId = id;
+
         scene.add.existing(this);
     }
 }
