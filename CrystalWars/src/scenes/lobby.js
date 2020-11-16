@@ -89,6 +89,15 @@ class lobbyScene extends Phaser.Scene {
         this.scene.start('gameP');
     }
 
+    endTurnMsg(msg) {
+        if (game.global.DEBUG_MODE) {
+            console.log('[DEBUG] JOIN message recieved')
+            console.dir(msg)
+        }
+        this.scene.get('gameP').myTurn = !this.scene.get('gameP').myTurn;
+    }
+
+
     errorMsg(msg) {
         switch (msg.cause) {
             case 'PLAY':
@@ -122,9 +131,9 @@ class lobbyScene extends Phaser.Scene {
                 break;
             case 'MANA':
                 if (game.global.myPlayer.id == msg.id) {
-                    this.scene.get('gameP').mana = parseInt(msg.data);
+                    this.scene.get('gameP').mana.changeMana(parseInt(msg.data));
                 } else {
-                    this.scene.get('gameP').enemyMana = parseInt(msg.data);
+                    this.scene.get('gameP').enemyMana.changeMana(parseInt(msg.data));
                 }
                 break;
             case 'SUMMON':
@@ -133,6 +142,21 @@ class lobbyScene extends Phaser.Scene {
                 } else {
                     this.scene.get('gameP').enemySummon(msg.data);
                 }
+                break;
+            case 'DESTROY':
+                if (game.global.myPlayer.id == msg.id) {
+                    this.scene.get('gameP').summons.get('player').destroy(msg.data);
+                } else {
+                    this.scene.get('gameP').summons.get('enemy').destroy(msg.data);
+                }
+                break;
+            case 'FIRST':
+                if (game.global.myPlayer.id == msg.id) {
+                    this.scene.get('gameP').myTurn = true;
+                }
+                break;
+            case 'END TURN':
+                this.scene.get('lobbyScene').endTurnMsg(msg);
                 break;
             default:
                 console.dir(msg)
@@ -144,7 +168,7 @@ class lobbyScene extends Phaser.Scene {
 function createRoom() {
     let msg = new Object();
     msg.event = 'CREATE';
-    msg.deck = '2 6 6';
+    msg.deck = '2 6 6 4';
 
     game.global.socket.send(JSON.stringify(msg));
 }

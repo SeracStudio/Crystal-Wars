@@ -4,7 +4,13 @@ class preload extends Phaser.Scene{
     }
 
     preload(){
+        this.load.image('particle_1', 'assets/images/particle_1.png');
+        this.load.image('button_off_1', 'assets/images/button_off_1.png');
+        this.load.image('button_off_2', 'assets/images/button_off_2.png');
+        this.load.image('button_on_1', 'assets/images/button_on_1.png');
+        this.load.image('button_on_2', 'assets/images/button_on_2.png');
         this.load.image('placeHolder', 'assets/PlaceHolder.png');
+        this.load.image('manaOrb', 'assets/images/manaOrb.png');
         this.load.image('board', 'assets/images/board.png');
         this.load.image('card', 'assets/images/card.png');
         this.load.image('play','assets/images/Play.png');
