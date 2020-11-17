@@ -4,24 +4,37 @@ class Card extends Phaser.GameObjects.Sprite {
         var x = 0;
         var y = 0;
 
-        super(scene, x, y, "cards", id);
+        super(scene, x, y, "crystalCards", id);
 
         this.cardId = id;
         this.tweener = new Tweener(this);
         this.isStatic = false;
+        this.selected=false;
+        this.deckS=false;
 
         this.isPointerOver = false;
         scene.add.existing(this);
-        
+
         this.setInteractive();
 
-        this.on('pointerdown', function(){
+        this.on('pointerdown', function() {
+          if(!deckScene){
             let msg = new Object();
 
             msg.event = 'SELECT';
             msg.id = this.cardId;
 
             game.global.socket.send(JSON.stringify(msg));
+          }else{
+            if(!this.selected){
+              this.selected=true
+              this.setScale(1.2);
+            }else{
+              this.selected=false;
+              this.setScale(1);
+            }
+          }
+
         });
     }
 
@@ -44,6 +57,8 @@ class Tweener {
     }
 
     tweenTo(x, y, duration, continuous, unconditional) {
+        if (this.sprite.isStatic) return;
+
         if (!unconditional) {
             if (this.continuous == true)
                 return;
@@ -66,11 +81,11 @@ class Tweener {
         });
     }
 
-    tweenChainTo(chain){
+    tweenChainTo(chain) {
         var timeline = this.sprite.scene.tweens.createTimeline();
 
-        for(let i = 0; i < chain.length; i++){
-            timeline.add({
+        for (let i = 0; i < chain.length; i++) {
+            let tween = timeline.add({
                 targets: this.sprite,
                 x: chain[i][0],
                 y: chain[i][1],
@@ -82,7 +97,7 @@ class Tweener {
         timeline.play();
     }
 
-    tweenScaleTo(scaleX, scaleY, duration){
+    tweenScaleTo(scaleX, scaleY, duration) {
         this.stopTween();
         this.currentTween = this.sprite.scene.tweens.add({
             targets: this.sprite,

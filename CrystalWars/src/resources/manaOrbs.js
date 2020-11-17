@@ -9,20 +9,23 @@ class ManaOrbs{
             this.manaOrbs[i] = this.scene.add.sprite(targets[i][0], targets[i][1], 'manaOrb');
             this.manaOrbs[i].scaleX = 0;
             this.manaOrbs[i].scaleY = 0;
-            this.manaOrbs[i].depth = 1;
+            this.manaOrbs[i].depth = 0;
             this.manaOrbs[i].tweener = new Tweener(this.manaOrbs[i]);
         }
     }
 
     addMana(mana){
         var beta = this.currentOrbs + mana;
+        var delayCount = 0;
         for(let i = this.currentOrbs; i < beta; i++){
-            //this.manaOrbs[i].tweener.tweenScaleTo(1, 1, 250);
+            let delay = delayCount * 250;
+            delayCount++;
             this.scene.tweens.add({
                 targets: this.manaOrbs[i],
                 scaleX: 1,
                 scaleY: 1,
                 duration: 250,
+                //delay: delay,
                 ease: 'Power2',
             });
             this.currentOrbs++;
@@ -32,13 +35,16 @@ class ManaOrbs{
     removeMana(mana){
         var alpha = this.currentOrbs - 1;
         var beta = this.currentOrbs + mana - 1;
+        var delayCount = 0;
         for(let i = alpha; i > beta; i--){
-            //this.manaOrbs[i].tweener.tweenScaleTo(0, 0, 250);
+            let delay = delayCount * 250;
+            delayCount++;
             this.scene.tweens.add({
                 targets: this.manaOrbs[i],
                 scaleX: 0,
                 scaleY: 0,
                 duration: 250,
+                //delay: delay,
                 ease: 'Power2',
             });
             this.currentOrbs--;

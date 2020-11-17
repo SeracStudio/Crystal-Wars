@@ -1,23 +1,26 @@
-class Crystal{
-    constructor(health){
-        this.health = health;
-        this.mana;
+class Crystal {
+    constructor(scene, posX, posY) {
+        this.scene = scene;
+        this.posX = posX;
+        this.posY = posY;
+        this.crystal;
 
+        this.displayHealth(15);
     }
 
-    damage(points){
-        this.health -= points;
+    displayHealth(health) {
+        if (this.crystal != undefined) {
+            this.crystal.destroy();
+        }
+
+        if (health > 9 || health < 0) {
+            this.crystal = this.scene.add.dynamicBitmapText(this.posX, this.posY, 'dogica', health, 16);
+        } else {
+            this.crystal = this.scene.add.dynamicBitmapText(this.posX + 6, this.posY, 'dogica', health, 16);
+        }
+
+        this.crystal.align = 0;
+        this.crystal.setTintFill(0x0a7c80, 0x0a7c80, 0x0a7c80, 0x0a7c80);
     }
 
-    heal(points){
-        this.health += points;
-    }
-
-    addMana(points){
-        this.mana += points;
-    }
-
-    removeMana(points){
-        this.mana -= points;
-    }
 }

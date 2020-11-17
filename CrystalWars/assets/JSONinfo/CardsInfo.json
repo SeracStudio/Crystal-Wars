@@ -1,122 +1,148 @@
-[
-    {
-        "description":"Mana1"
+[{
+        "description": "DEFAULT"
     },
     {
-        "description":"Mana2"
+        "description": "Imbuye 1 de maná."
     },
     {
-        "description":"Mana3"
+        "description": "Imbuye 2 de maná."
     },
     {
-        "description":"Mana4"
+        "description": "Gasta todo tu maná.\n\nRestaura la misma\n\ncantidad."
     },
     {
-        "description":"Mana5"
+        "description": "Restaura 1 a tu cristal.\n\nSi 'Pluviam' está en el\n\ncampo, restaura 1 más."
     },
     {
-        "description":"Mana6"
+        "description": "Inflige 1 al rival por\n\ncada punto restaurado\n\neste turno."
     },
     {
-        "description":"Mana7"
+        "description": "Cada vez que lances\n\nun hechizo, restaura 1."
     },
     {
-        "description":"Mana8"
+        "description": "Cada vez que uses una\n\ncarta de maná, imbuye\n\n1 más."
     },
     {
-        "description":"Mana9"
+        "description": "Inicio de turno: Mira\n\nuna carta de la mano del\n\nrival. Imbuye su coste."
     },
     {
-        "description":"Mana10"
+        "description": "Cada vez que algún\n\njugador invoque,\n\nincluyendo esta, inflige\n\n2 a tu rival y 1 a ti."
     },
     {
-        "description":"Mana11"
+        "description": "Final de turno: Restaura\n\n1 a tu cristal. Inflige 1\n\na tu rival por cada punto\n\nde maná gastado."
     },
     {
-        "description":"Mana12"
+        "description": "Imbuye 1 de maná."
     },
     {
-        "description":"Mana13"
+        "description": "Imbuye 2 de maná."
     },
     {
-        "description":"Mana14"
+        "description": "Inflige 2 a ti mismo.\n\nDestruye una invocación\n\ndel rival."
     },
     {
-        "description":"Mana15"
+        "description": "Inflige 1 a ti mismo.\n\nRoba 2 cartas."
     },
     {
-        "description":"Mana16"
+        "description": "Inicio de turno: si hay,\n\nroba 1 carta de maná\n\ndel mazo."
     },
     {
-        "description":"Mana17"
+        "description": "Inicio de turno:\n\nInflige 1 a tu cristal.\n\nImbuye 1 de maná."
     },
     {
-        "description":"Mana18"
+        "description": "Inflige 2 a tu cristal.\n\nInvoca a 'Leviores',\n\nsi está en tu mano."
     },
     {
-        "description":"Mana19"
+        "description": "Cuando esta carta es\n\ninvocada inflige 2 a tu\n\nrival y 1 a tu cristal.\n\nFinal de turno: Devuelve\n\nesta carta a tu mano."
     },
     {
-        "description":"Mana20"
+        "description": "Final de turno: Inflige\n\nal rival la misma\n\ncantidad de daño que hayas\n\ninfligido a tu cristal\n\ndurante este turno."
     },
     {
-        "description":"Mana21"
+        "description": "Inicio de turno: Inflige\n\n1 a tu rival y 1 a ti\n\nmismo.\n\nFinal de turno: si tienes\n\n1 punto de vida, inflige\n\na tu rival una cantidad\n\nde daño equivalente a\n\ntodo el daño que hayas\n\ninfligido a tu cristal\n\ndurante la partida."
     },
     {
-        "description":"Mana22"
+        "description": "Imbuye 1 de maná."
     },
     {
-        "description":"Mana23"
+        "description": "Imbuye 2 de maná."
     },
     {
-        "description":"Mana24"
+        "description": "Si esta carta es\n\ndescartada, roba 1 carta."
     },
     {
-        "description":"Mana25"
+        "description": "Si esta carta ha sido\n\ndescartada, final de turno:\n\nDevuelve esta carta\n\na tu mano. Roba tantas\n\ncartas como fueron\n\ndescartadas, sin incluir\n\nesta."
     },
     {
-        "description":"Mana26"
+        "description": "Descarta 1 carta.\n\nRoba a 'Caeli',\n\nsi está en tu mazo."
     },
     {
-        "description":"Mana27"
+        "description": "Roba 1 carta.\n\nSi es una invocación,\n\ninflige 1 al rival.\n\nSi no, descarta 1 carta."
     },
     {
-        "description":"Mana28"
+        "description": "Descarta 2 cartas.\n\nRoba 2 cartas."
     },
     {
-        "description":"Mana29"
+        "description": "Inicio de turno:\n\nDescarta 1 carta.\n\nSi hay, roba 1 carta\n\nde maná del mazo."
     },
     {
-        "description":"Mana30"
+        "description": "Inicio de turno:\n\nDescarta 2 cartas.\n\nFinal de turno:\n\nSi se ha activado\n\nel primer efecto de\n\nesta carta este turno,\n\ninflige 2 a tu rival.\n\nSi 'Caeli' está invocada,\n\nroba 2 cartas en su lugar."
     },
     {
-        "description":"Mana31"
+        "description": "Cuando esta carta es\n\ninvocada roba 1 carta.\n\nFinal de turno:\n\nInflige 1 al rival\n\npor cada carta descartada."
     },
     {
-        "description":"Mana32"
+        "description": "Imbuye 1 de maná."
     },
     {
-        "description":"Mana33"
+        "description": "Imbuye 2 de maná."
     },
     {
-        "description":"Mana34"
+        "description": "Si esta carta es\n\ndestruida, roba 1\n\ninvocación de tu mazo."
     },
     {
-        "description":"Mana35"
+        "description": "Destruye una de tus\n\ninvocaciones. Destruye\n\nuna invocación del rival."
     },
     {
-        "description":"Mana36"
+        "description": "Destruye una de tus\n\ninvocaciones. Imbuye\n\ntanto maná como\n\nsu coste."
     },
     {
-        "description":"Mana37"
+        "description": "Si esta carta es\n\ndestruida, restaura 2.\n\nSi 'Doton' está invocada,\n\nimbuye 1 de maná."
     },
     {
-        "description":"Mana38"
+        "description": "Si esta carta es\n\ndestruida, inflige 2\n\na tu rival."
     },
     {
-        "description":"Mana39"
+        "description": "Destruye una de tus\n\ninvocaciones. Invoca\n\na 'Doton', si está\n\nen tu mano."
     },
     {
-        "description":"Mana40"
+        "description": "Si esta carta es\n\ndestruida, inflige 3\n\na tu rival.\n\nFinal de turno: Si esta\n\ncarta ha sido destruida\n\neste turno, devuelve\n\nesta carta a tu mano."
+    },
+    {
+        "description": "Final de turno:\n\nDestruye una de tus\n\ninvocaciones. Inflige 1\n\na tu rival por cada\n\ncarta tuya enviada\n\nal cementerio este\n\nturno, sin contar\n\nlas de maná."
+    },
+    {
+        "description": "Inicio de turno:\n\nSi no tienes maná,\n\nimbuye 1 de maná."
+    },
+    {
+        "description": "Roba 1 carta.\n\nSi tu rival tiene más\n\ninvocaciones que tú,\n\nroba 1 carta más."
+    },
+    {
+        "description": "Descarta 1 carta de\n\nla mano de tu rival."
+    },
+    {
+        "description": "Inicio de turno:\n\nMira 1 carta de la\n\nmano de tu rival."
+    },
+    {
+        "description": "Tu rival no puede\n\nrealizar invocaciones\n\nel siguiente turno."
+    },
+    {
+        "description": "Destruye 1 invocación\n\ndel rival."
+    },
+    {
+        "description": "Destruye 1 de tus\n\ninvocaciones. Inflige\n\na tu rival una cantidad\n\nequivalente a su coste."
+    },
+    {
+        "description": "Inicio de turno:\n\nRetira 1 de maná\n\ndel rival."
     }
 ]
