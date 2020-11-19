@@ -1,0 +1,30 @@
+
+Última baza: roba 3 cartas e imbuye 3 de maná si:
+
+	- Tienes, al menos, 3 cartas en el mazo
+	- Tienes 3 o menos cartas en la mano
+	- Si se tiene 3 o más de maná, simplemente llega hasta 5
+
+
+
+
+
+--------------------------------- VOCABULARIO -----------------------------------------------------------
+Coste: cantidad necesaria de maná para jugar esa carta.
+Límite: cuando el jugador se queda con 1 punto de cristal
+
+
+Sacrificar: destruir una invocación propia que está en el campo
+Ofrecer: ser sacrificada por otra carta
+
+
+Restaurar (X): sana X puntos a tu cristal
+
+Dañar: resta puntos al rival
+Inflingir: resta puntos a tu cristal
+
+Descartar: elegir una carta de la mano, propia o rival, y enviarla al cementerio
+
+Imbuir (X): añadir X de maná
+
+Invocar: no cuenta desde el cementerio
