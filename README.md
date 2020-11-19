@@ -99,11 +99,8 @@ Los costes asociados al desarrollo serían únicamente los sueldos de los trabaj
 
 | Tipo de sueldo \ Miembro| Alejandro | Darío | Dilan | Enrique | Germán | Pablo |
 | -------------  | -------------  | -------------  | -------------  | -------------  | -------------  | -------------  |
-
 | Sueldo Bruto anual | 32.000 | 33.000 | 35.000 | 33.000 | 37.000 | 45.000 |
-
 | Sueldo neto anual | 24.468 | 25.123 | 26.436 | 25.123 | 27.747 | 32.643 |
-
 | Sueldo neto diario | 97,1 | 99,69 | 104,9 | 99,69 | 110,11 | 129,54 |
 
 Las referencias de los sueldos están en el documento “Enlaces de interés.docx” 
