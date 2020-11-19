@@ -2,11 +2,11 @@
 
 ## 1. Introducción 
 
-Descripción breve del concepto 
+### Descripción breve del concepto 
 
 La idea general del juego es un enfrentamiento entre dos jugadores en un juego de cartas por turnos. Hay una historia que no influye en el gameplay pero que sirve de justificación para dar más personalidad a las entidades que aparecen en las cartas. Ambos jugadores empiezan con 15 puntos y a través del uso de los hechizos, el maná y las invocaciones tendrán que reducir los puntos rivales a 0. 
 
-Descripción breve de la historia y personajes 
+### Descripción breve de la historia y personajes 
 
 La historia se ambienta en un mundo ficticio donde los diferentes elementos naturales poseen un dios que los representa. A su vez, habrá determinados súbditos de estos dioses que les ayudan en distintas tareas. Estos pueden ser súbditos sin importancia, que en el juego serán las invocaciones más débiles; o pueden ser bastante relevantes, las deidades menores. Estas se ocupan de ciertas áreas que le son delegadas por el dios principal. Cada elemento tendrá una deidad menor.  
 
@@ -16,7 +16,7 @@ Para la salida del juego habrá 4 barajas con su dios y su dios menor respectivo
 
  
 
-Propósito, público objetivo y plataformas 
+### Propósito, público objetivo y plataformas 
 
 El objetivo es que las partidas sean rápidas y frenéticas, de unos minutos como máximo. A pesar de tener un componente estratégico, por las propias mecánicas, la duración de los turnos es corta, dotándolo de esta velocidad. 
 
@@ -27,7 +27,7 @@ La plataforma principal sería el navegador web, tanto Mozilla como Chrome.
  
 ## 2. Monetización y modelo de negocio 
 
-Tipo de modelo de monetización 
+### Tipo de modelo de monetización 
 
 El modelo de negocio que seguirá el juego será freemium. Se presentará un videojuego inicial con todo su contenido gratuito que luego se irá actualizando y expandiendo con nuevos mazos, tableros y modos de juego. Sin embargo, también podría considerarse como un modelo de fidelización ya que el producto inicial tiene la intención de captar un público, que se intentará agrandar y conservar a través del apartado competitivo del juego y de las mentadas expansiones de contenido. 
 
@@ -35,7 +35,7 @@ El modelo de monetización sería micro transacciones. Se partirá de una base g
 
 De igual forma, todas las cartas nuevas se podrán conseguir a través de unas gemas, también propias de juego, que podrán conseguirse con otros desafíos o simplemente jugando mucho. Sin embargo, el tablero sólo se podrá conseguir a través de la compra de la moneda ingame. Solo se verá el tablero personalizado al jugador que lo haya adquirido, el usuario que no tenga el tablero ya sea el rival o el propio jugador, si no tiene tablero personalizado, se verá el estándar. 
 
-Tablas de productos y precios 
+### Tablas de productos y precios 
 
 PRODUCTO 
 
@@ -205,7 +205,7 @@ Por último, se pasa a mostrar el Business Model Canvas del videojuego:
 
 ## 3. Planificación y Costes 
 
-El equipo humano 
+### El equipo humano 
 
 El equipo que se ocupará de este proyecto está conformado por 6 personas: 
 
@@ -223,7 +223,7 @@ Enrique Corrochano Pardo: será el tercer programador.
 
 Por último, cabe decir que, al ser un grupo reducido de personas, la estructura que se seguirá será algo democrática, donde las ideas sólo se aprobarán si hay una mayoría que piensa que esa idea es adecuada. Por otro lado, también hay mucha versatilidad, por lo que será común que las personas se salgan de su área para ayudar a otra en caso de que fuera necesario. 
 
-Estimación temporal del desarrollo 
+### Estimación temporal del desarrollo 
 
 Desde el comienzo del proyecto hasta la posible fecha de entrega hay aproximadamente unos 50 días. Sin embargo, la mayoría de las tareas son paralelizables, siendo el apartado artístico y el de programación los más tardíos por su nivel de complejidad. En el siguiente esquema se muestra la estimación de tiempo de cada proceso que se ha creído relevante: 
 
@@ -231,7 +231,7 @@ Desde el comienzo del proyecto hasta la posible fecha de entrega hay aproximadam
 
  
 
-Costes asociados 
+### Costes asociados 
 
 Los costes asociados al desarrollo serían únicamente los sueldos de los trabajadores y las posibles licencias que se adquirieran. Debido a que trabajamos de forma remota, costes indirectos como oficina, luz o internet no son aplicables, por lo que nos quedarían estos costes directos: 
 
@@ -301,7 +301,7 @@ Por otro lado, cabe mencionar que los programas de pago que se usen, se usará s
 
 ## 4. Mecánicas de Juego y Elementos de Juego (personajes (nº) y sus mecánicas, escenarios que hacen, número de assets que se necesitan para el escenario, módulos que se necesitan (esquinas, central, etcétera) 
 
-Descripción detallada del concepto de juego 
+### Descripción detallada del concepto de juego 
 
 Para su salida inicial, el juego va a contar con un modo tutorial y un modo multijugador en el que se podrá elegir el modo de dificultad: normal o difícil. El modo normal es el que se va a explicar en el siguiente apartado, mientras que el modo difícil consistirá en partidas algo más rápidas, con un componente más estratégico, pero que no supondrán un cambio radical de las reglas.  
 
@@ -311,7 +311,7 @@ A esto hay que sumar los assets de las gemas y las monedas del juego. A pesar de
 
  
 
-Descripción detallada de las mecánicas de juego 
+### Descripción detallada de las mecánicas de juego 
 
 El proyecto es un videojuego de cartas por turnos en el que cada jugador empieza con una mano de 4 cartas cada uno. Cuando inicia el turno, el jugador debe robar una carta del mazo y se comenzará la fase de invocación. En este punto habrá tres tipos de cartas: cartas de maná, cartas de hechizo y cartas de invocación. Las primeras estarán en todos los mazos y servirán para darnos puntos de maná para poder jugar las otras dos. Los hechizos tendrán un efecto activo en la partida, ya sea para restar puntos al enemigo rival o para ganar maná o puntos propios. Por último, las invocaciones tendrán un efecto pasivo que actuará cada turno que estén en el terreno. Sólo se podrán cambiar o destruir por el efecto de algún hechizo o invocación; o siendo sustituida por otra invocación. Ambos jugadores empiezan la partida con 15 puntos y se acabará cuando alguno de los jugadores pierda todos sus puntos. 
 
@@ -323,7 +323,7 @@ Para acabar, cabe mencionar una última mecánica llamada “Última baza” que
 
  
 
-Controles 
+### Controles 
 
 Los controles son muy sencillos. Si se juega en navegador se usaría únicamente el ratón donde a través de click izquierdo se puede arrastrar al campo la carta a usar y con click derecho se elige el objetivo del efecto de la carta si se debe seleccionar a otra. Tras el click sobre la carta, se pasará al tablero donde se hará click en el tablero si es maná o un hechizo, o en la casilla en la que se quiera poner la invocación. Para ver el efecto de la carta, únicamente hay que pasar el ratón por encima. 
 
@@ -331,13 +331,13 @@ Mientras que si es en Tablet o en móvil se haría todo arrastrando con el dedo 
 
  
 
-Niveles y misiones 
+### Niveles y misiones 
 
 Las opciones de juego sería la opción multijugador, que se tiene pensada como la principal, una opción tutorial para poder aprender a jugar, pudiendo crearse y modificarse los 4 mazos; y un modo de desafío semanal que se hará para conseguir gemas y nuevas cartas. No obstante, este último modo se incluirá junto con la primera expansión, debido a que conseguir gemas con todas las cartas disponibles, como ocurre con la salida inicial del juego, no tiene sentido. 
 
  
 
-Objetos, armas y power ups 
+### Objetos, armas y power ups 
 
 Los objetos principales son obviamente las cartas en sí y su unión, las barajas. Cada mazo se podrá modificar con las cartas Neutrales para dar personalización resultando en muchas variantes diferentes.  
 
@@ -347,7 +347,7 @@ El único power up que puede haber en el juego sería la mecánica de "Última B
 
 ## 5. Trasfondo 
 
-Descripción detallada de la historia y la trama 
+### Descripción detallada de la historia y la trama 
 
 Arké, el Dios de dioses, tras llevar milenios ostentando este puesto decide que su reinado tiene que acabar. Como consecuencia de ello, les dice a sus hijos, los dioses elementales, que ellos decidirán quién va a ser su próximo superior. Los dioses se reúnen para decidir quién debe ser el siguiente. Sin embargo, no se deciden por nadie en concreto debido a las trencillas y roces que ha habido en el pasado entre ellos, por lo que la reunión acaba en una acalorada discusión, que sirve como preludio a la guerra. 
 
@@ -357,7 +357,7 @@ Por otro lado, Arké no tiene ningún problema con esta guerra, pero no se va a 
 
 Como ya se ha dicho con anterioridad, la historia en el juego va a tener un papel muy secundario que se explicará en unas pocas líneas como introducción del juego. No obstante, todo lo contado en la historia se abstraerá a nivel mecánico, como, por ejemplo, las tropas Neutrales reconvertidas en cartas que se pueden tener en cada mazo. 
 
-Personajes 
+### Personajes 
 
 Arké: Dios de dioses y comandante de las tropas Neutrales. De actitud cansada, es el personaje que desencadena la historia, pero siendo un secundario en la misma. Es un personaje que denota el tedio y el cansancio que supone haber estado siendo el Ser superior. Se muestra indiferente ante la mayoría de las situaciones, como es el caso de esta guerra; esta es una de las principales razones por las que algunos dioses ya querían eliminarle antes de que Él mismo lo anunciara. No es jugable. 
 
@@ -379,7 +379,7 @@ Para más información del personaje se puede ver su ficha de personaje en la ca
 
  
 
-Entornos y lugares 
+### Entornos y lugares 
 
 La historia transcurrirá en un archipiélago en el que habrá distintos biomas para cada uno de los elementos incluidos en el juego, tanto los iniciales como las sucesivas expansiones, de manera que se aprovecharán todas las partes del mapa. Algo similar hizo Super Smash Bros. Ultimate con un Wallpaper en el que se mostraban los personajes iniciales, pero se dejaba el espacio necesario para incluir aquellos que vendrían en las expansiones. 
 
@@ -399,7 +399,7 @@ En cuanto al gameplay, estos diferentes entornos se verán reflejados en los tab
 
 ## 6. Arte 
 
-Estética general del juego 
+### Estética general del juego 
 
 El estilo visual que va a seguir el juego va a ser pixel-art. Se va a optar por este estilo debido a que es el más sencillo y rápido de realizar y, además, es muy vistoso. Al tener que hacer un total de 48 cartas, si se siguiera un estilo más realista o elaborado, llevaría demasiado tiempo para completarlas todas. Sin embargo, no va a ser un pixel-art simple, sino que será uno más desarrollado y con el que se pueden apreciar los detalles, como ocurre con Blasphemous.  
 
@@ -417,7 +417,7 @@ Por último, las cartas neutrales van a intentar tener una estética neutra, val
 
 Otro elemento a destacar es el tablero de juego. Se ha intentado seguir una estética sobria, con la que se entienda rápidamente la situación de la partida con un simple vistazo. Se han usado colores simples y poco llamativos, y se le ha dado una importancia a la vida y el maná centrándolos en la pantalla. 
 
-Animación 
+### Animación 
 
 Se van a hacer una serie de pequeñas animaciones con el fin de dar un feedback al jugador. Las animaciones van a ser muy simples y se van a hacer por código ya que son movimientos de cartas por la pantalla. Se va a introducir: 
 
@@ -433,17 +433,17 @@ Una animación para cuando el jugador se quede sin cartas para robar, se mostrar
 
 Para el sonido, se buscarán estilos musicales y efectos de sonido típicos de juegos de cartas, con el fin de que el jugador obtenga un feedback auditivo de lo que está sucediendo en la partida, además de que el jugador sienta una mayor inmersión en la partida gracias a la música.  
 
-Sonido ambiente y música 
+### Sonido ambiente y música 
 
 A lo que respecta con el sonido ambiente y la música, se optará por una música estilo medieval con tintes épicos, lo que llevará al jugador a la época que queremos representar en el videojuego, y la épica resalta que se trata de una guerra entre dioses. Si bien no se tiene pensado un sonido ambiente como tal, se intentará que, con la ayuda de los efectos sonoros, esta falta de sonido ambiental sea suplida. 
 
-Efectos sonoros 
+### Efectos sonoros 
 
 En este apartado, con el fin de suplir la falta de sonido ambiente, se buscará que el jugador reciba feedback constante de cada acción que suceda en la partida.  
 
 Estos efectos no serán creados por nosotros, sino que se hará uso de una amplia librería de audios de licencia libre para agilizar el desarrollo del videojuego. 
 
-Lista de sonidos (este por ejemplo di que se ponen las referencias al final y ya) 
+### Lista de sonidos (este por ejemplo di que se ponen las referencias al final y ya) 
 
 Dado que, como hemos mencionado en el apartado anterior, los sonidos no serán de creación propia, por lo que todos los efectos sonoros a usar serán listados en el apartado de Elementos externos usados y Licencias. 
 
@@ -451,7 +451,7 @@ Dado que, como hemos mencionado en el apartado anterior, los sonidos no serán d
 
 ## 8. Interfaz 
 
-Diseños básicos de los menús 
+### Diseños básicos de los menús 
 
 El diseño de los menús es muy similar al estilo que van a tener las cartas. Se va a seguir una estética pixel-art con colores sencillos en los fondos, mientras que los botones van a tener una paleta más llamativa y que inviten a ser pulsados. 
 
@@ -489,26 +489,26 @@ Por último, habría productos de merchandasing como algunas cartas físicas, a 
 
 ## 10. Hoja de ruta del desarrollo 
 
-Inicio de ruta: 
+### Inicio de ruta: 
 
 A día 21 de octubre de 2020, se está escribiendo la ruta de desarrollo. En este momento, se tiene completado el logo de la empresa junto con la introducción de la misma, el GDD está completado en un 60% y se tiene una idea certera del juego, ya sea tanto de las mecánicas, como de la historia, como del sistema de monetización para los próximos dos años. Se ha creído importante aclarar en qué momento del desarrollo se está escribiendo los hitos junto con sus fechas ya que, a pesar de que se tenían pensados, muchas de las tareas que hay son paralelas por lo que algunas han acabado antes y otras se están retrasando. 
 
-Hito 1: Diseño de las cartas y equilibrio del juego. Objetivo: 30 de octubre. 
+### Hito 1: Diseño de las cartas y equilibrio del juego. Objetivo: 30 de octubre. 
 
 Se entiende por diseño de cartas como determinar el efecto y el maná que costará dicha carta. Se estructurarán todos los mazos y se tendrá claro todo lo referente al diseño del juego y las mecánicas: se tendrá una idea segura de la mecánica de “Última baza” al igual que se sabrá con seguridad el número total de cartas de cartas distintas. Por último, se habrá balanceado el juego buscando el mayor equilibrio posible junto con la rapidez de las partidas. 
 
-Hito 2: Arte del juego. Objetivo: 12 de noviembre. 
+### Hito 2: Arte del juego. Objetivo: 12 de noviembre. 
 
 Tanto el arte como la programación del juego son dos tareas que, además de muy largas, son altamente paralelizables, pudiendo usar placeholders en caso de que fuera necesario. Es por ello, que sus fechas objetivo son muy similares. Para este punto, todo el arte del juego tiene que estar hecho. Se entiende por arte de juego como los dos tableros, todas las cartas y unos sprites básicos de las gemas y las monedas del juego, así como los elementos UI del mismo. 
 
-Hito 3: Programación del juego. Objetivo: 15 de noviembre. 
+### Hito 3: Programación del juego. Objetivo: 15 de noviembre. 
 
 Supondría toda la programación del juego, tanto los dos modos de dificultad como el multijugador y cualquier comportamiento del juego como los controles, movimiento de las cartas, los efectos de las mismas, etc. 
 
-Fecha de lanzamiento. 19 de noviembre. 
+### Fecha de lanzamiento. 19 de noviembre. 
 
 Al ser la fecha de salida 4 días después de finalizar la programación se podrá hacer sesiones de beta testing buscando errores del juego y corrigiéndolos. Además, habría tiempo para poder realizar un tráiler de presentación. 
 
-Tras la salida del juego. Objetivo: duración de vida de 2 años. 
+### Tras la salida del juego. Objetivo: duración de vida de 2 años. 
 
 En esta época donde el juego se entiende como un servicio de entretenimiento, la vida de los mismos tiene que ser mucho mayor y para que el juego siga siendo relevante, se deberá de añadir constantemente contenido. Este ha sido especificado en el apartado anterior. 
