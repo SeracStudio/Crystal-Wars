@@ -1,0 +1,17 @@
+{
+	event: "GAME STATE UPDATE",
+	players: [{
+		id: 13
+		shipType: nave.png
+		posX: 134
+		posY: 145
+		facingAngle: 45
+	},{
+		id: 14
+		shipType: nave2.png
+		posX: 32
+		posY: 49
+		facingAngle: 29
+	}]
+	projectiles: [{}]
+}

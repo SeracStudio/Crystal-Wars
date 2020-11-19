@@ -1,0 +1,75 @@
+AGUA - WATER
+
+Orbe de maná - mana orb. Imbuir (1) - Gain (1)
+Pareja de orbes - twin orbs. Imbuir (2) - Gain (2)
+
+Resaca - Riptade. Daña 1 al rival por cada punto regenerado este turno - Damage 1 to your enemy's health for each point restored this turn.
+Manantial de la vida - Spring of life. Restaurar: tantos puntos como maná tengas - Restore (heal/cure): so much as mana orbs you have.
+Cáliz de coral - Coral calyx (Underwater rummer). Restuarar (1): si está Pluviam invocada, restuara 1 más - Restore (heal/cure) (1): if Pluviam is on the field, restore 1 more.
+Ostra Potenciadora - Booster shell. Imbuir (1): por cada carta de maná usada este turno - Gain (1) [Imbue (1), Acquire (1)]: for each mana card used this turn.
+Geiser - Geyser, the Warborn. Dañar: 2 al rival y 1 a tu cristal al invocar, incluyendo esta - Damage: 2 to your enemy and 1 to you for each summon made, including this one.
+Pupilo de las mareas - Ward of the tides. Restaurar (1): por hechizo usado este turno - Restore (1): for each spell card used this turn.
+Oráculo del océano - Ocean oracle. Inicio de turno: Mira una carta aleatoria de tu rival. Imbuye su coste - Starting (Kick-off/ Start of the turn): Look one random card from your rival's hand. Gain its cost
+
+Pluviam - Pluviam.
+
+
+TIERRA - GROUND
+
+Orbe de maná - mana orb. Imbuir (1) - Gain (1) [Imbue (1), Acquire (1)]
+Pareja de orbes - twin orbs . Imbuir (2) - Gain (2) [Imbue (2), Acquire (2)]
+
+Gore, el torturador - Gore the torturer. Ofrecer: Daña 3, vuelve a la mano al final del turno - Destroy: damage 3, return to your hand by the end of your turn.
+Báculo pétreo - Stony stuff. Sacrificar: destruye una invocación rival - Destroy: kill an enemy's summoning
+Gárgola caliza - Limestone gargoyle. Sacrificar: roba 1 invocación aleatoria - Sacrifice: draw 1 random summoning from the deck.
+Destrucción de Pangea - Pangea's destruction. Sacrificar: imbuye su coste -  Sacrifice: gain its cost.
+Guardián de basalto - Basalt guardian. Ofrecer: restaura 2, si fue sacrificada por Doton gana, además, 1 de maná - Destroy: restore 2. If it was destroy by Doton gain also 1 mana.
+Batallón mercenario - Mercenary battalion. Ofrecer: daña 2 - Destroy: damage 2 to your enemy.
+Fosa tectónica - Sacrifica: invoca a Doton si está en la mano - Sacrifice: summon Doton if it's in your hand.
+
+Doton - Doton. Fin de turno: sacrifica. Daña 1 por cada carta tuya enviada al cementerio - Ending (End of the turn): damage 1 to your enemy for each card sent to your graveyard not counting mana cards.
+
+
+FUEGO - FIRE
+
+Orbe de maná - mana orb. Imbuir (1) - Gain (1) [Imbue (1), Acquire (1)]
+Pareja de orbes - twin orbs. Imbuir (2) - Gain (2) [Imbue (2), Acquire (2)]
+
+Puertas del Tártaro - Tatarus' Gates. Inflingir (2): invoca a Leviores de la mano - Injure (hurt/break) (2): summon Leviores from your hand.
+Glifo Fuegoscuro - Darkfire glyph. Infligir (1): roba 2 cartas -  Injure (hurt/break) (1): draw 2 cards.
+Caldero de lava - Lava pot (lava calderous). Infligir (2): destruye una invocación rival - Damage (2): destroy an enemy's summoning.
+Buscallamas - Flameseeker. Inicio de turno: roba 1 carta de maná aleatorio si hay en el mazo - Starting (Kick-off/ Start of the turn): draw 1 random mana card if there is in your deck.
+Basilisco durmiente - Sleeping basilisk. Inicio del turno: imbuye 1 pero inflinge 1 - Starting (Kick-off/ Start of the turn): gain 1 but damage your health one.
+Caballero leal - Loyal knight. Invocar: Daña 2 al rival y 1 al propio. Final del turno: vuelve a tu mano - Summon: damage 2 to your rival and 1 to your own health. Ending (End of the turn): return to your hand.
+Ignis - Ignis. Reduce el costo por cada punto inflingido este turno. Fin de turno: daña 1 por cada punto inflingido - Reduce this cost in one for each point damaged to yourself. Ending (End of the turn): damage 1 to your rival for each point damaged to yourself.
+
+Leviores - Leviores. Inicio de turno: daña 1 a ambos jugadores. Límite: daña tantos puntos como te hayas inflingido a lo largo de la partida - Starting (Start of the turn): damage 1 to both players. Deathline: damage as many points as you have damaged to yourself during the match.
+
+
+VIENTO - WIND
+
+Orbe de maná - mana orb. Imbuir (1) - Gain (1) [Imbue (1), Acquire (1)]
+Pareja de orbes - twin orbs. Imbuir (2) - Gain (2) [Imbue (2), Acquire (2)]
+
+Silbato céfiro - Zephyr whistle. Descarta una cartá de maná para robar a Caeli - Discard one mana card and draw Caeli.
+Kumo - Kumo. Si esta carta es descartada, roba 1 - If this card is discarded, draw 1 card.
+Sora, el alado -  Sora, the winded. Fin de turno: si esta carta fue descartada, vuelve a la mano y roba tantas cartas como fueron descartadas sin contar esta - Ending (End of the turn): if this card was discarded, return to your hand and draw as many cards as were discarded not counting this one.
+Apuesta del viento - Typhoon bet (la he cambiado porque hay dos wind). Roba 1. Si es una invocación daña 1, si no descarta - Draw 1 card. If that card is a summoning damage 1 to your enemy, if it isn't discard one card.
+Periplo efímero - Brief journey. Descartar (2): roba 2 - Discard (2): draw 2 cards.
+Trotabrisas - Airwalker. Inicio del turno: descarta para robar una carta de maná aleatoria - Starting (Kick-off/ Start of the turn): discard one card to draw a random mana card from the deck.
+Notos - Notos. Inicio de turno: descarta 2. Fin de turno: si descartaste daña 2 o, si Caeli está en el campo, roba 2 - Starting (Kick-off/ Start of the turn): discard 2 cards. Ending (End of the turn): If you discard, damage 2 to your enemy or, if Caeli is on the field, draw 2 cards.
+
+Caeli - Caeli. Invocar: roba 1. Fin de turno: daña 1 por cada carta descartada este turno - Summon: draw 1 card. Ending (End of the turn): damage 1 to your enemy for each card discarded this turn.
+
+
+
+NEUTRAL -  NEUTRAL
+
+Wain, el copero - Wain, the cupbearer. Inicio de turno: si no hay maná, imbuye 1 - Starting (Kick-off/ Start of the turn): if you don't have mana, gain 1
+Equilibrar la balanza - Balance the scale. Si tu rival tiene las mismas invocaciones que tú, roba 1. Si tiene más, roba 2 - Draw 1 card if your enemy has as many summonings as you have. Draw 2 if he has more. 
+Elección de dios - God's choice. Descartar (1): de la mano rival - Discard (1): from your enemy's hand.
+Joky, el bufón - Joky, the jester. Inicio de turno: mira una carta aleatoria de tu rival - Starting (Kick-off/ Start of the turn): look randomly one card from your's enemy hand
+Bloqueo celestial - Heavenly lockdown. Tu rival no puede invocar en su próximo turno - Your enemy can't summon in his next turn.
+Trueno de Arké - Arké's thunder. Destruye una invocación rival - Destroy one enemy's summoning
+Sacrificio divino - Divine Sacrifice. Sacrificar: daña su coste - Offered (Given/Sacrifice): damage its value
+Mirada eterna - Eternal gaze. Inicio de turno: resta 1 de maná al rival - Starting (Kick-off/ Start of the turn): remove 1 mana orb from your enemy 

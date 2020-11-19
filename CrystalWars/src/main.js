@@ -19,6 +19,7 @@ window.onload = function() {
         DEBUG_MODE: true,
         WS_CONNECTION: false,
         socket: null,
-        myPlayer: new Object()
+        myPlayer: new Object(),
+        finalDeck: ""
     }
 }
