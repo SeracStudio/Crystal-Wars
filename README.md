@@ -1,7 +1,9 @@
 # Crystal Wars - GAME DESIGN DOCUMENT
 
 ## 1. Introducción 
+
 <div class=text-justify>
+
 ### Descripción breve del concepto 
 
 La idea general del juego es un enfrentamiento entre dos jugadores en un juego de cartas por turnos. Hay una historia que no influye en el gameplay pero que sirve de justificación para dar más personalidad a las entidades que aparecen en las cartas. Ambos jugadores empiezan con 15 puntos y a través del uso de los hechizos, el maná y las invocaciones tendrán que reducir los puntos rivales a 0. 
