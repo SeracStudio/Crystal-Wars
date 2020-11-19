@@ -1,148 +1,246 @@
 [{
-        "description": "DEFAULT"
+        "description": "DEFAULT",
+        "lines": 0,
+        "element": "neutral"
     },
     {
-        "description": "Imbuye 1 de maná."
+        "description": "Imbuye 1 de maná.",
+        "lines": 1,
+        "element": "water"
     },
     {
-        "description": "Imbuye 2 de maná."
+        "description": "Imbuye 2 de maná.",
+        "lines": 1,
+        "element": "water"
     },
     {
-        "description": "Gasta todo tu maná.\n\nRestaura la misma\n\ncantidad."
+        "description": "Gasta todo tu maná.\n\nRestaura la misma\n\ncantidad a tu cristal.",
+        "lines": 3,
+        "element": "water"
     },
     {
-        "description": "Restaura 1 a tu cristal.\n\nSi 'Pluviam' está en el\n\ncampo, restaura 1 más."
+        "description": "Restaura 1 a tu cristal.\n\nSi 'Pluviam' está en el\n\ncampo, restaura 1 más.",
+        "lines": 3,
+        "element": "water"
     },
     {
-        "description": "Inflige 1 al rival por\n\ncada punto restaurado\n\neste turno."
+        "description": "Inflige 1 al rival por\n\ncada punto restaurado\n\neste turno.",
+        "lines": 3,
+        "element": "water"
     },
     {
-        "description": "Cada vez que lances\n\nun hechizo, restaura 1."
+        "description": "Cada vez que lances\n\nun hechizo, restaura 1.",
+        "lines": 2,
+        "element": "water"
     },
     {
-        "description": "Cada vez que uses una\n\ncarta de maná, imbuye\n\n1 más."
+        "description": "Cada vez que uses una\n\ncarta de maná, imbuye\n\n1 más.",
+        "lines": 3,
+        "element": "water"
     },
     {
-        "description": "Inicio de turno: Mira\n\nuna carta de la mano del\n\nrival. Imbuye su coste."
+        "description": "Inicio de turno: Mira\n\nuna carta de la mano del\n\nrival. Imbuye su coste.",
+        "lines": 3,
+        "element": "water"
     },
     {
-        "description": "Cada vez que algún\n\njugador invoque,\n\nincluyendo esta, inflige\n\n2 a tu rival y 1 a ti."
+        "description": "Cada vez que algún\n\njugador invoque,\n\nincluyendo esta, inflige\n\n2 a tu rival y 1 a ti.",
+        "lines": 4,
+        "element": "water"
     },
     {
-        "description": "Final de turno: Restaura\n\n1 a tu cristal. Inflige 1\n\na tu rival por cada punto\n\nde maná gastado."
+        "description": "Final de turno: Restaura\n\n1 a tu cristal. Inflige 1\n\na tu rival por cada punto\n\nde maná gastado.",
+        "lines": 4,
+        "element": "water"
     },
     {
-        "description": "Imbuye 1 de maná."
+        "description": "Imbuye 1 de maná.",
+        "lines": 1,
+        "element": "fire"
     },
     {
-        "description": "Imbuye 2 de maná."
+        "description": "Imbuye 2 de maná.",
+        "lines": 1,
+        "element": "fire"
     },
     {
-        "description": "Inflige 2 a ti mismo.\n\nDestruye una invocación\n\ndel rival."
+        "description": "Inflige 2 a tu cristal.\n\nDestruye una invocación\n\ndel rival.",
+        "lines": 3,
+        "element": "fire"
     },
     {
-        "description": "Inflige 1 a ti mismo.\n\nRoba 2 cartas."
+        "description": "Inflige 1 a tu cristal.\n\nRoba 2 cartas.",
+        "lines": 2,
+        "element": "fire"
     },
     {
-        "description": "Inicio de turno: si hay,\n\nroba 1 carta de maná\n\ndel mazo."
+        "description": "Inicio de turno: si hay,\n\nroba 1 carta de maná\n\ndel mazo.",
+        "lines": 3,
+        "element": "fire"
     },
     {
-        "description": "Inicio de turno:\n\nInflige 1 a tu cristal.\n\nImbuye 1 de maná."
+        "description": "Inicio de turno:\n\nInflige 1 a tu cristal.\n\nImbuye 1 de maná.",
+        "lines": 3,
+        "element": "fire"
     },
     {
-        "description": "Inflige 2 a tu cristal.\n\nInvoca a 'Leviores',\n\nsi está en tu mano."
+        "description": "Inflige 2 a tu cristal.\n\nInvoca a 'Leviores',\n\nsi está en tu mano.",
+        "lines": 3,
+        "element": "fire"
     },
     {
-        "description": "Cuando esta carta es\n\ninvocada inflige 2 a tu\n\nrival y 1 a tu cristal.\n\nFinal de turno: Devuelve\n\nesta carta a tu mano."
+        "description": "Cuando esta carta es\n\ninvocada inflige 2 a tu\n\nrival y 1 a tu cristal.\n\nFinal de turno: Devuelve\n\nesta carta a tu mano.",
+        "lines": 5,
+        "element": "fire"
     },
     {
-        "description": "Final de turno: Inflige\n\nal rival la misma\n\ncantidad de daño que hayas\n\ninfligido a tu cristal\n\ndurante este turno."
+        "description": "Final de turno: Inflige\n\nal rival la misma\n\ncantidad de daño que hayas\n\ninfligido a tu cristal\n\ndurante este turno.",
+        "lines": 5,
+        "element": "fire"
     },
     {
-        "description": "Inicio de turno: Inflige\n\n1 a tu rival y 1 a ti\n\nmismo.\n\nFinal de turno: si tienes\n\n1 punto de vida, inflige\n\na tu rival una cantidad\n\nde daño equivalente a\n\ntodo el daño que hayas\n\ninfligido a tu cristal\n\ndurante la partida."
+        "description": "Inicio de turno: Inflige\n\n1 a tu rival y 1 a tu\n\ncristal.\n\nFinal de turno: si tienes\n\n1 punto de vida, inflige\n\na tu rival una cantidad\n\nde daño equivalente a\n\ntodo el daño que hayas\n\ninfligido a tu cristal\n\ndurante la partida.",
+        "lines": 10,
+        "element": "fire"
     },
     {
-        "description": "Imbuye 1 de maná."
+        "description": "Imbuye 1 de maná.",
+        "lines": 1,
+        "element": "wind"
     },
     {
-        "description": "Imbuye 2 de maná."
+        "description": "Imbuye 2 de maná.",
+        "lines": 1,
+        "element": "wind"
     },
     {
-        "description": "Si esta carta es\n\ndescartada, roba 1 carta."
+        "description": "Si esta carta es\n\ndescartada, roba 1 carta.",
+        "lines": 2,
+        "element": "wind"
     },
     {
-        "description": "Si esta carta ha sido\n\ndescartada, final de turno:\n\nDevuelve esta carta\n\na tu mano. Roba tantas\n\ncartas como fueron\n\ndescartadas, sin incluir\n\nesta."
+        "description": "Si esta carta ha sido\n\ndescartada este turno,\n\nFinal de turno:\n\nDevuelve esta carta\n\na tu mano. Roba tantas\n\ncartas como fueron\n\ndescartadas, sin incluir\n\nesta.",
+        "lines": 8,
+        "element": "wind"
     },
     {
-        "description": "Descarta 1 carta.\n\nRoba a 'Caeli',\n\nsi está en tu mazo."
+        "description": "Descarta 1 carta.\n\nRoba a 'Caeli',\n\nsi está en tu mazo.",
+        "lines": 3,
+        "element": "wind"
     },
     {
-        "description": "Roba 1 carta.\n\nSi es una invocación,\n\ninflige 1 al rival.\n\nSi no, descarta 1 carta."
+        "description": "Roba 1 carta.\n\nSi es una invocación,\n\ninflige 1 al rival.\n\nSi no, descarta 1 carta.",
+        "lines": 4,
+        "element": "wind"
     },
     {
-        "description": "Descarta 2 cartas.\n\nRoba 2 cartas."
+        "description": "Descarta 2 cartas.\n\nRoba 2 cartas.",
+        "lines": 2,
+        "element": "wind"
     },
     {
-        "description": "Inicio de turno:\n\nDescarta 1 carta.\n\nSi hay, roba 1 carta\n\nde maná del mazo."
+        "description": "Inicio de turno:\n\nDescarta 1 carta.\n\nSi hay, roba 1 carta\n\nde maná del mazo.",
+        "lines": 4,
+        "element": "wind"
     },
     {
-        "description": "Inicio de turno:\n\nDescarta 2 cartas.\n\nFinal de turno:\n\nSi se ha activado\n\nel primer efecto de\n\nesta carta este turno,\n\ninflige 2 a tu rival.\n\nSi 'Caeli' está invocada,\n\nroba 2 cartas en su lugar."
+        "description": "Inicio de turno:\n\nDescarta 2 cartas.\n\nFinal de turno:\n\nSi se ha activado\n\nel primer efecto de\n\nesta carta este turno,\n\ninflige 2 a tu rival.\n\nSi 'Caeli' está invocada,\n\nroba 2 cartas en su lugar.",
+        "lines": 9,
+        "element": "wind"
     },
     {
-        "description": "Cuando esta carta es\n\ninvocada roba 1 carta.\n\nFinal de turno:\n\nInflige 1 al rival\n\npor cada carta descartada."
+        "description": "Cuando esta carta es\n\ninvocada roba 1 carta.\n\nFinal de turno:\n\nInflige 1 al rival\n\npor cada carta\n\ndescartada este turno.",
+        "lines": 6,
+        "element": "wind"
     },
     {
-        "description": "Imbuye 1 de maná."
+        "description": "Imbuye 1 de maná.",
+        "lines": 1,
+        "element": "earth"
     },
     {
-        "description": "Imbuye 2 de maná."
+        "description": "Imbuye 2 de maná.",
+        "lines": 1,
+        "element": "earth"
     },
     {
-        "description": "Si esta carta es\n\ndestruida, roba 1\n\ninvocación de tu mazo."
+        "description": "Si esta carta es\n\ndestruida, roba 1\n\ninvocación de tu mazo.",
+        "lines": 3,
+        "element": "earth"
     },
     {
-        "description": "Destruye una de tus\n\ninvocaciones. Destruye\n\nuna invocación del rival."
+        "description": "Destruye una de tus\n\ninvocaciones. Destruye\n\nuna invocación del rival.",
+        "lines": 3,
+        "element": "earth"
     },
     {
-        "description": "Destruye una de tus\n\ninvocaciones. Imbuye\n\ntanto maná como\n\nsu coste."
+        "description": "Destruye una de tus\n\ninvocaciones. Imbuye\n\ntanto maná como\n\nsu coste.",
+        "lines": 4,
+        "element": "earth"
     },
     {
-        "description": "Si esta carta es\n\ndestruida, restaura 2.\n\nSi 'Doton' está invocada,\n\nimbuye 1 de maná."
+        "description": "Si esta carta es\n\ndestruida, restaura 2.\n\nAdemás, si 'Doton'\n\nestá en tu campo,\n\nimbuye 1 de maná.",
+        "lines": 5,
+        "element": "earth"
     },
     {
-        "description": "Si esta carta es\n\ndestruida, inflige 2\n\na tu rival."
+        "description": "Si esta carta es\n\ndestruida, inflige 2\n\na tu rival.",
+        "lines": 3,
+        "element": "earth"
     },
     {
-        "description": "Destruye una de tus\n\ninvocaciones. Invoca\n\na 'Doton', si está\n\nen tu mano."
+        "description": "Destruye una de tus\n\ninvocaciones. Invoca\n\na 'Doton', si está\n\nen tu mano.",
+        "lines": 4,
+        "element": "earth"
     },
     {
-        "description": "Si esta carta es\n\ndestruida, inflige 3\n\na tu rival.\n\nFinal de turno: Si esta\n\ncarta ha sido destruida\n\neste turno, devuelve\n\nesta carta a tu mano."
+        "description": "Si esta carta es\n\ndestruida, inflige 3\n\na tu rival.\n\nFinal de turno: Si esta\n\ncarta ha sido destruida\n\neste turno, devuelve\n\nesta carta a tu mano.",
+        "lines": 7,
+        "element": "earth"
     },
     {
-        "description": "Final de turno:\n\nDestruye una de tus\n\ninvocaciones. Inflige 1\n\na tu rival por cada\n\ncarta tuya enviada\n\nal cementerio este\n\nturno, sin contar\n\nlas de maná."
+        "description": "Final de turno:\n\nDestruye una de tus\n\ninvocaciones. Inflige 1\n\na tu rival por cada\n\ncarta tuya enviada\n\nal cementerio este\n\nturno, sin contar\n\nlas de maná.",
+        "lines": 8,
+        "element": "earth"
     },
     {
-        "description": "Inicio de turno:\n\nSi no tienes maná,\n\nimbuye 1 de maná."
+        "description": "Inicio de turno:\n\nSi no tienes maná,\n\nimbuye 1 de maná.",
+        "lines": 3,
+        "element": "neutral"
     },
     {
-        "description": "Roba 1 carta.\n\nSi tu rival tiene más\n\ninvocaciones que tú,\n\nroba 1 carta más."
+        "description": "Roba 1 carta.\n\nSi tu rival tiene más\n\ninvocaciones que tú,\n\nroba 1 carta más.",
+        "lines": 4,
+        "element": "neutral"
     },
     {
-        "description": "Descarta 1 carta de\n\nla mano de tu rival."
+        "description": "Descarta 1 carta\n\naleatoria de la mano\n\nde tu rival.",
+        "lines": 3,
+        "element": "neutral"
     },
     {
-        "description": "Inicio de turno:\n\nMira 1 carta de la\n\nmano de tu rival."
+        "description": "Inicio de turno:\n\nMira 1 carta de la\n\nmano de tu rival.",
+        "lines": 3,
+        "element": "neutral"
     },
     {
-        "description": "Tu rival no puede\n\nrealizar invocaciones\n\nel siguiente turno."
+        "description": "Tu rival no puede\n\nrealizar invocaciones\n\nel siguiente turno.",
+        "lines": 3,
+        "element": "neutral"
     },
     {
-        "description": "Destruye 1 invocación\n\ndel rival."
+        "description": "Destruye 1 invocación\n\ndel rival.",
+        "lines": 2,
+        "element": "neutral"
     },
     {
-        "description": "Destruye 1 de tus\n\ninvocaciones. Inflige\n\na tu rival una cantidad\n\nequivalente a su coste."
+        "description": "Destruye 1 de tus\n\ninvocaciones. Inflige\n\na tu rival una cantidad\n\nequivalente a su coste.",
+        "lines": 4,
+        "element": "neutral"
     },
     {
-        "description": "Inicio de turno:\n\nRetira 1 de maná\n\ndel rival."
+        "description": "Inicio de turno:\n\nRetira 1 de maná\n\ndel rival.",
+        "lines": 3,
+        "element": "neutral"
     }
 ]

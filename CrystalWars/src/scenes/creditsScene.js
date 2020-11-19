@@ -4,43 +4,35 @@ class creditsScene extends Phaser.Scene {
     }
 
     create() {
-        var fondo = this.add.image(0, 0, 'credits');
-        Phaser.Display.Align.In.Center(fondo, this.add.zone(320, 180, 640, 360));
+        var fondo = this.add.image(320, 180, 'collectionBackground');
+        var menu = this.add.image(320, 320, 'buttonsAtlas', 'back_1');
 
-        var menu = this.add.image(0, 0, 'menuButton');
-        menu.setScale(0.04)
-        Phaser.Display.Align.In.Center(menu, this.add.zone(320, 320, 640, 360));
+        this.add.dynamicBitmapText(320, 90, 'dogica', 'SERAC STUDIO', 32).setOrigin(0.5, 0.5);
+        this.add.dynamicBitmapText(320, 130, 'dogica', 'Pablo Fernández-Vega Padilla').setOrigin(0.5, 0.5);
+        this.add.dynamicBitmapText(320, 150, 'dogica', 'Enrique Corrochano Pardo').setOrigin(0.5, 0.5);
+        this.add.dynamicBitmapText(320, 170, 'dogica', 'Darío Muñoz Rostami').setOrigin(0.5, 0.5);
+        this.add.dynamicBitmapText(320, 190, 'dogica', 'Dilan Rodríguez Triana').setOrigin(0.5, 0.5);
+        this.add.dynamicBitmapText(320, 210, 'dogica', 'Alejandro Vera López').setOrigin(0.5, 0.5);
+        this.add.dynamicBitmapText(320, 230, 'dogica', 'Germán Calcedo Perez').setOrigin(0.5, 0.5);
 
-        menu.setInteractive().on('pointerover', function() {
-            menu.setScale(0.08)
+        menu.setInteractive().on('pointerdown', () => mouseClickMenu(this));
+        menu.on('pointerover', function() {
+            menu.setTexture('buttonsAtlas', 'back_2');
         });
         menu.on('pointerout', function() {
-            menu.setScale(0.04)
+            menu.setTexture('buttonsAtlas', 'back_1');
         });
-        menu.on('pointerdown', () => mouseClickMenu(this));
 
-        this.count = 1;
-        this.cardsInfo = this.cache.json.get('info');
-        this.description = new Object();
-    }
+        this.add.image(200, 300, 'twitterLogo').setInteractive().on('pointerdown', function() {
+            window.open('https://twitter.com/StudioSerac', '_blank');
+        });
 
-    update() {
-        var cKey = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.C);
-        var fKey = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.F);
-        var dKey = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.D);
-        if (Phaser.Input.Keyboard.JustDown(cKey)) {
-            var description = this.cardsInfo[this.count].description;
-            this.description.box = this.add.sprite(320, 130, 'descBox');
-            this.description.text = this.add.dynamicBitmapText(250, 100, 'dogica', description);
-        } else if (Phaser.Input.Keyboard.JustDown(fKey)) {
-            this.description.box.destroy();
-            this.description.text.destroy();
-            this.count++;
-        }else if (Phaser.Input.Keyboard.JustDown(dKey)) {
-            this.description.box.destroy();
-            this.description.text.destroy();
-            this.count--;
-        }
+        this.add.image(440, 300, 'seracLogo').setInteractive().on('pointerdown', function() {
+            window.open('https://seracstudio.github.io/portfolio/', '_blank');
+        });
+
+
+        new SoundController(this, 590, 40);
     }
 }
 

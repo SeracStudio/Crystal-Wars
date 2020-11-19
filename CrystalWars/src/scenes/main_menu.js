@@ -4,56 +4,79 @@ class main_menu extends Phaser.Scene {
     }
 
     create() {
-      var fondo = this.add.image(0, 0, 'mainMenuBackground');
-      Phaser.Display.Align.In.Center(fondo, this.add.zone(320,180,640,360));
+        if (!isMusicPlaying) {
+            isMusicPlaying = true;
+            this.menuMusic = this.sound.add('menuMusic');
+            this.menuMusic.play();
+            this.menuMusic.volume = 0.15;
+            this.menuMusic.loop = true;
+        }
 
-      var play = this.add.image(0, 0, 'play');
-      play.setScale(0.04)
-      Phaser.Display.Align.In.Center(play, this.add.zone(320,120,640,360));
+        var fondo = this.add.image(320, 180, 'mainBackground');
+        var logo = this.add.image(320, 60, 'crystalLogo');
 
-      var credits=this.add.image(0,0,'creditsButton');
-      credits.setScale(0.04)
-      Phaser.Display.Align.In.Center(credits,this.add.zone(320,170,640,360));
+        var play = this.add.image(320, 180, 'buttonsAtlas', 'play_1');
+        var credits = this.add.image(80, 40, 'credits_1');
+        var sound = new SoundController(this, 590, 40);
+        var collection = this.add.image(203, 180, 'buttonsAtlas', 'collection_1');
+        var help = this.add.image(560, 320, 'help_1');
 
-      var optionsB=this.add.image(0,0,'optionsButton');
-      optionsB.setScale(0.04)
-      Phaser.Display.Align.In.Center(optionsB,this.add.zone(320,220,640,360));
+        play.setInteractive().on('pointerdown', () => mouseClickPlay(this));
+        play.on('pointerover', function() {
+            play.setTexture('buttonsAtlas', 'play_2');
+        });
+        play.on('pointerout', function() {
+            play.setTexture('buttonsAtlas', 'play_1');
+        });
 
-      var deckB=this.add.image(0,0,'deckButton');
-      deckB.setScale(0.04)
-      Phaser.Display.Align.In.Center(deckB,this.add.zone(320,270,640,360));
+        credits.setInteractive().on('pointerdown', () => mouseClickCredits(this));
+        credits.on('pointerover', function() {
+            credits.setTexture('credits_2');
+        });
+        credits.on('pointerout', function() {
+            credits.setTexture('credits_1');
+        });
 
-      play.setInteractive().on('pointerover',function(){play.setScale(0.08);play.setDepth(1)});
-      play.on('pointerout',function(){play.setScale(0.04);play.setDepth(0)});
-      play.on('pointerdown',()=>mouseClickPlay(this));
+        collection.setInteractive().on('pointerdown', () => mouseClickDeck(this));
+        collection.on('pointerover', function() {
+            collection.setTexture('buttonsAtlas', 'collection_2');
+        });
+        collection.on('pointerout', function() {
+            collection.setTexture('buttonsAtlas', 'collection_1');
+        });
 
-      credits.setInteractive().on('pointerover',function(){credits.setScale(0.08);credits.setDepth(1)});
-      credits.on('pointerout',function(){credits.setScale(0.04),credits.setDepth(0)});
-      credits.on('pointerdown',()=>mouseClickCredits(this));
+        help.setInteractive().on('pointerdown', () => mouseClickTutorial(this));
+        help.on('pointerover', function() {
+            help.setTexture('help_2');
+        });
+        help.on('pointerout', function() {
+            help.setTexture('help_1');
+        });
 
-      optionsB.setInteractive().on('pointerover',function(){optionsB.setScale(0.08);optionsB.setDepth(1)});
-      optionsB.on('pointerout',function(){optionsB.setScale(0.04); optionsB.setDepth(0)});
-      optionsB.on('pointerdown',()=>mouseClickOptions(this));
-
-      deckB.setInteractive().on('pointerover',function(){deckB.setScale(0.08);deckB.setDepth(1)});
-      deckB.on('pointerout',function(){deckB.setScale(0.04);deckB.setDepth(0)});
-      deckB.on('pointerdown',()=>mouseClickDeck(this));
+        if (deckCreated)
+            this.deckCreatedFeedback();
     }
 
+    deckCreatedFeedback() {
+        new PopUpBox(this, 320, 280, 'popUpBox', 'Mazo creado y guardado.', 1500).launchPopUp();
+        deckCreated = false;
+    }
 }
 
-function mouseClickPlay(aux){
-  aux.scene.start('lobbyScene');
+var deckCreated = false;
+
+function mouseClickPlay(aux) {
+    aux.scene.start('lobbyScene');
 }
 
-function mouseClickCredits(aux){
-  aux.scene.start('creditsScene');
+function mouseClickCredits(aux) {
+    aux.scene.start('creditsScene');
 }
 
-function mouseClickOptions(aux){
-  aux.scene.start('optionsScene');
+function mouseClickTutorial(aux) {
+    aux.scene.start('optionsScene');
 }
 
-function mouseClickDeck(aux){
-  aux.scene.start('deckScene');
+function mouseClickDeck(aux) {
+    aux.scene.start('deckScene');
 }

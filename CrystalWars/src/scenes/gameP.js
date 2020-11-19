@@ -5,11 +5,20 @@ class gameP extends Phaser.Scene {
     }
 
     create() {
+        this.isGameActive = true;
+        this.playSound('healEffect', 0.5);
 
-        this.emitter0 = this.add.particles('particle_1').createEmitter({
+        if (gameMode == 'FAST') {
+            this.crystalButton = this.add.sprite(134, 180, 'quickButton_1').setInteractive();
+            this.crystalButton.on('pointerdown', function() {
+                this.activateCrystalButton();
+            }, this);
+        }
+
+        this.emitter0 = this.add.particles('crystalParticle').createEmitter({
             speed: {
-                min: -400,
-                max: 400
+                min: -200,
+                max: 200
             },
             angle: {
                 min: 0,
@@ -17,35 +26,78 @@ class gameP extends Phaser.Scene {
             },
             scale: {
                 start: 1,
-                end: 0.75
+                end: 1
             },
-            quantity: 50,
+            quantity: 75,
             blendMode: 'SCREEN',
-            lifespan: 600,
+            lifespan: 500,
         });
         this.emitter0.stop();
 
+        this.emitter1 = this.add.particles('crystalParticle2').createEmitter({
+            speed: {
+                min: -100,
+                max: 100
+            },
+            angle: {
+                min: -135,
+                max: -45
+            },
+            scale: {
+                start: 1,
+                end: 1
+            },
+            quantity: 100,
+            blendMode: 'SCREEN',
+            lifespan: 500,
+        });
+        this.emitter1.stop();
+
+        this.surrenderButton = this.add.sprite(24, 24, 'buttonsAtlas', 'back_1').setInteractive();
+        this.surrenderButton.on('pointerdown', function() {
+            leaveServer();
+            this.scene.start('main_menu');
+        }, this);
+        this.surrenderButton.on('pointerover', function(){
+            this.surrenderButton.setTexture('buttonsAtlas', 'back_2');
+        }, this)
+        this.surrenderButton.on('pointerout', function(){
+            this.surrenderButton.setTexture('buttonsAtlas', 'back_1');
+        }, this)
+
         this.endTurnButton = this.add.sprite(515, 180, 'button_off_1').setInteractive();
         this.myTurn = false;
-        this.endTurnButton.on('pointerover', function() {
-            if (this.myTurn)
-                this.endTurnButton.setTexture('button_on_1');
-        }, this);
-        this.endTurnButton.on('pointerout', function() {
-            this.setTexture('button_off_1');
-        });
+
         this.endTurnButton.on('pointerdown', function() {
+            if (!this.isGameActive) return;
+
             if (this.myTurn) {
                 this.endTurnButton.setTexture('button_on_2');
                 this.endTurn();
+            } else {
+                this.endTurnButton.setTexture('button_off_2');
             }
         }, this);
         this.endTurnButton.on('pointerup', function() {
-            this.setTexture('button_off_1');
-        });
+            if (!this.isGameActive) return;
 
+            if (this.myTurn) {
+                this.endTurnButton.setTexture('button_on_1');
+            } else {
+                this.endTurnButton.setTexture('button_off_1');
+            }
+        }, this);
+
+        this.selectPopUp;
+
+        this.playerDeck = this.add.sprite(575, 276, 'fullDeck');
+        this.playerDeck.depth = 5;
+        this.enemyDeck = this.add.sprite(66, 75, 'fullDeck');
+        this.enemyDeck.depth = 5;
         this.cards = [];
         this.enemyCards = [];
+        this.graveyard = [];
+        this.enemyGraveyard = [];
         this.mana = new ManaOrbs(this, [
             [280, 231],
             [295, 253],
@@ -81,6 +133,7 @@ class gameP extends Phaser.Scene {
         Phaser.Display.Align.In.Center(board, this.add.zone(320, 180, 640, 360));
 
         this.input.on('drag', function(pointer, gameObject, dragX, dragY) {
+            if (!this.isGameActive) return;
             this.hideCardDescription();
             gameObject.tweener.stopTween();
             if (!gameObject.isStatic) {
@@ -91,11 +144,15 @@ class gameP extends Phaser.Scene {
         }, this);
 
         this.input.on('dragend', function(pointer, handCard) {
-            this.cardReleased(handCard);
-            handCard.depth = 1;
+            if (!this.isGameActive) return;
+            if (this.cards.includes(handCard)) {
+                handCard.depth = 1;
+                this.cardReleased(handCard);
+            }
         }, this);
 
         this.input.on('gameobjectover', function(pointer, gameObject) {
+            if (!this.isGameActive) return;
             try {
                 if (gameObject.isPointerOver == false) {
                     gameObject.isPointerOver = true;
@@ -109,6 +166,7 @@ class gameP extends Phaser.Scene {
         }, this);
 
         this.input.on('gameobjectout', function(pointer, gameObject) {
+            if (!this.isGameActive) return;
             try {
                 gameObject.isPointerOver = false;
                 //gameObject.y = 343;
@@ -120,10 +178,29 @@ class gameP extends Phaser.Scene {
         }, this);
 
         this.cardsInfo = this.cache.json.get('info');
+        console.log(this.cardsInfo);
 
         this.description = new Object();
 
+        if (game.global.myPlayer.creator) {
+            this.roomBox = this.add.sprite(320, 180, 'roomTextBox');
+
+            let roomString = "";
+            for (let i = 0; i < game.global.myPlayer.roomID.length; i++) {
+                roomString += game.global.myPlayer.roomID.charAt(i) + "";
+            }
+
+            this.roomText = this.add.dynamicBitmapText(320, 180, 'dogica', roomString, 32).setOrigin(0.5, 0.5);
+        }
+
+        new SoundController(this, 605, 20);
+
         this.notifyReady();
+    }
+
+    destroyRoomID() {
+        this.roomBox.destroy();
+        this.roomText.destroy();
     }
 
     notifyReady() {
@@ -145,6 +222,13 @@ class gameP extends Phaser.Scene {
     endTurn() {
         let msg = new Object();
         msg.event = 'END TURN';
+
+        game.global.socket.send(JSON.stringify(msg));
+    }
+
+    activateCrystalButton() {
+        let msg = new Object();
+        msg.event = 'CRYSTAL BUTTON';
 
         game.global.socket.send(JSON.stringify(msg));
     }
@@ -238,7 +322,7 @@ class gameP extends Phaser.Scene {
     }
 
     addEnemyCard() {
-        var card = this.add.image(65, 70, 'cards', 16);
+        var card = this.add.image(65, 70, 'crystalCards', 0);
         this.enemyCards.push(card);
         this.resizeEnemyCards();
     }
@@ -257,10 +341,17 @@ class gameP extends Phaser.Scene {
                 this.cards[index].tweener.tweenChainTo([
                     [320, 180, 250, 'Power2'],
                     [320, 180, 500, 'Power2'],
-                    [65, 290, 250, 'Power2']
+                    [66, 279, 250, 'Power2']
                 ]);
                 this.cards[index].setInteractive(false);
-                this.cards.splice(index, 1);
+                this.graveyard.push(this.cards.splice(index, 1)[0]);
+                for (let i = 0; i < this.graveyard.length; i++) {
+                    console.log(this.graveyard[i]);
+                    this.graveyard[i].depth = 2;
+                    if (i == this.graveyard.length - 1) {
+                        this.graveyard[i].depth = 3;
+                    }
+                }
                 break;
             }
         }
@@ -281,9 +372,16 @@ class gameP extends Phaser.Scene {
             playedCard.tweener.tweenChainTo([
                 [320, 180, 250, 'Power2'],
                 [320, 180, 500, 'Power2'],
-                [575, 70, 250, 'Power2']
+                [575, 78, 250, 'Power2']
             ]);
             playedCard.setInteractive(false);
+            this.enemyGraveyard.push(playedCard);
+            for (let i = 0; i < this.enemyGraveyard.length; i++) {
+                this.enemyGraveyard[i].depth = 2;
+                if (i == this.enemyGraveyard.length - 1) {
+                    this.enemyGraveyard[i].depth = 3;
+                }
+            }
         }
     }
 
@@ -296,10 +394,17 @@ class gameP extends Phaser.Scene {
                 card.isStatic = true;
                 card.tweener.tweenChainTo([
                     [card.x, card.y - 20, 300, 'Back'],
-                    [65, 290, 400, 'Power2']
+                    [66, 279, 400, 'Power2']
                 ]);
                 card.setInteractive(false);
-                this.cards.splice(index, 1);
+                this.graveyard.push(this.cards.splice(index, 1)[0]);
+                for (let i = 0; i < this.graveyard.length; i++) {
+                    this.graveyard[i].depth = 2;
+                    if (i == this.graveyard.length - 1) {
+                        console.log(this.graveyard[i]);
+                        this.graveyard[i].depth = 3;
+                    }
+                }
                 break;
             }
         }
@@ -320,10 +425,32 @@ class gameP extends Phaser.Scene {
             this.input.setDraggable(discardedCard, false);
             discardedCard.tweener.tweenChainTo([
                 [discardedCard.x, 37, 300, 'Back'],
-                [575, 70, 400, 'Power2']
+                [575, 78, 400, 'Power2']
             ]);
             discardedCard.setInteractive(false);
+            this.enemyGraveyard.push(discardedCard);
+            for (let i = 0; i < this.enemyGraveyard.length; i++) {
+                this.enemyGraveyard[i].depth = 2;
+                if (i == this.enemyGraveyard.length - 1) {
+                    this.enemyGraveyard[i].depth = 3;
+                }
+            }
         }
+    }
+
+
+    peek(id) {
+        var playedCard = new Card(this, id);
+        playedCard.x = 320;
+        playedCard.y = -100;
+        playedCard.isStatic = true;
+        this.input.setDraggable(playedCard, false);
+        playedCard.tweener.tweenChainTo([
+            [133, 179, 500, 'Power2'],
+            [133, 179, 5000, 'Power2'],
+            [320, -100, 500, 'Power2']
+        ]);
+        playedCard.setInteractive(false);
     }
 
     deleteEnemyCard() {
@@ -334,16 +461,170 @@ class gameP extends Phaser.Scene {
         }
     }
 
+    deckReset() {
+        for (let i = 0; i < this.graveyard.length; i++) {
+            this.tweens.add({
+                targets: this.graveyard[i],
+                x: 575,
+                y: 279,
+                duration: 300,
+                delay: 50 * i,
+                ease: 'Power2',
+                onComplete: function() {
+                    for (var obj of this.targets) {
+                        obj.destroy();
+                    }
+                }
+            });
+        }
+
+        this.graveyard = [];
+        this.playerDeck.alpha = 1;
+    }
+
+    enemyDeckReset() {
+        for (let i = 0; i < this.enemyGraveyard.length; i++) {
+            this.tweens.add({
+                targets: this.enemyGraveyard[i],
+                x: 66,
+                y: 78,
+                duration: 300,
+                delay: 50 * i,
+                onComplete: function() {
+                    for (var obj of this.targets) {
+                        obj.destroy();
+                    }
+                }
+            });
+        }
+
+        this.enemyGraveyard = [];
+        this.enemyDeck.alpha = 1;
+    }
+
     showCardDescription(id) {
+        this.hideCardDescription();
+
         var description = this.cardsInfo[id].description;
-        this.description.box = this.add.sprite(320, 130, 'descBox');
-        this.description.text = this.add.dynamicBitmapText(250, 100, 'dogica', description);
+        console.log(this.cardsInfo[id].lines);
+        this.description.box = this.add.sprite(320, 135, this.cardsInfo[id].element, this.cardsInfo[id].lines);
+        this.description.box.depth = 5;
+        this.description.text = this.add.dynamicBitmapText(320, 135, 'dogica', description).setOrigin(0.5, 0.5);
+        this.description.text.depth = 6;
+        this.description.text.align = 1;
     }
 
     hideCardDescription() {
+        if (this.description.box == undefined || this.description.text == undefined)
+            return;
+
         this.description.box.destroy();
         this.description.text.destroy();
     }
 
+    showVictory() {
+        leaveServer();
 
+        var victory = this.add.sprite(320, -200, 'victory');
+        victory.depth = 7;
+        var continueButton = this.add.sprite(320, -100, 'continue');
+        continueButton.depth = 6;
+        this.isGameActive = false;
+
+        this.tweens.add({
+            targets: victory,
+            x: 320,
+            y: 85,
+            duration: 3000,
+            ease: 'Bounce'
+        });
+        this.tweens.add({
+            targets: continueButton,
+            x: 320,
+            y: 230,
+            duration: 3000,
+            ease: 'Bounce'
+        });
+
+        continueButton.setInteractive().on('pointerover', function() {
+            continueButton.setTexture('continue_2');
+        })
+        continueButton.on('pointerout', function() {
+            continueButton.setTexture('continue');
+        })
+        continueButton.on('pointerdown', function() {
+            this.scene.start('main_menu');
+        }, this)
+    }
+
+    showDefeat() {
+        leaveServer();
+
+        let defeat = this.add.sprite(320, -200, 'defeat');
+        defeat.depth = 7;
+        let continueButton = this.add.sprite(320, -100, 'continue');
+        continueButton.depth = 6;
+        this.isGameActive = false;
+
+        this.tweens.add({
+            targets: defeat,
+            x: 320,
+            y: 85,
+            duration: 3000,
+            ease: 'Bounce'
+        });
+        this.tweens.add({
+            targets: continueButton,
+            x: 320,
+            y: 230,
+            duration: 3000,
+            ease: 'Bounce'
+        });
+
+        continueButton.setInteractive().on('pointerover', function() {
+            continueButton.setTexture('continue_2');
+        })
+        continueButton.on('pointerout', function() {
+            continueButton.setTexture('continue');
+        })
+        continueButton.on('pointerdown', function() {
+            this.scene.start('main_menu');
+        }, this)
+    }
+
+    turnPopFeedback() {
+        var popUp = new PopUpBox(this, 320, 180, 'popUpBoxError', 'TU TURNO', 1500, 16);
+        popUp.launchPopUp();
+        popUp.depth = 5;
+        popUp.popUpText.depth = 6;
+    }
+
+    popUpErrorFeedback(msg) {
+        var popUp = new PopUpBox(this, 320, 265, 'popUpBoxError', msg, 1500);
+        popUp.launchPopUp();
+        popUp.depth = 5;
+        popUp.popUpText.depth = 6;
+    }
+
+    popUpErrorFeedbackLarge(msg) {
+        var popUp = new PopUpBox(this, 320, 265, 'popUpBoxError2', msg, 1500);
+        popUp.launchPopUp();
+        popUp.depth = 5;
+        popUp.popUpText.depth = 6;
+    }
+
+    openPopUpSelectFeedback(msg) {
+        this.selectPopUp = new PopUpBox(this, 320, 265, 'popUpBox', msg, 1500);
+        this.selectPopUp.open();
+        this.selectPopUp.depth = 5;
+        this.selectPopUp.popUpText.depth = 6;
+    }
+
+    closePopUpSelectFeedback() {
+        this.selectPopUp.closeNow();
+    }
+
+    playSound(sound, volume) {
+        new PlaySound(this, sound, volume);
+    }
 }

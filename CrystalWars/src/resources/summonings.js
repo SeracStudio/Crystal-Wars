@@ -34,19 +34,33 @@ class Summonings {
         for (let index = 0; index < this.summons.length; index++) {
             let card = this.summons[index];
             if (card.card.cardId == parseInt(id) && card.inUse == true) {
-                console.log(this.summons[index].card);
                 card.inUse = false;
                 this.scene.hideCardDescription();
                 card.depth = 2;
                 if (this.owner == 'player') {
+                    this.scene.graveyard.push(card.card);
+                    for (let i = 0; i < this.scene.graveyard.length; i++) {
+                        this.scene.graveyard[i].depth = 2;
+                        if(i == this.scene.graveyard.length - 1){
+                            console.log(this.scene.graveyard[i][0]);
+                            this.scene.graveyard[i].depth = 3;
+                        }
+                    }
                     card.card.tweener.tweenChainTo([
                         [card.pos[0], card.pos[1] - 20, 300, 'Back'],
-                        [65, 290, 400, 'Power2']
+                        [66, 279, 400, 'Power2']
                     ]);
                 } else {
+                    this.scene.enemyGraveyard.push(card.card);
+                    for (let i = 0; i < this.scene.enemyGraveyard.length; i++) {
+                        this.scene.enemyGraveyard[i].depth = 2;
+                        if(i == this.scene.enemyGraveyard.length - 1){
+                            this.scene.enemyGraveyard[i].depth = 3;
+                        }
+                    }
                     card.card.tweener.tweenChainTo([
                         [card.pos[0], card.pos[1] - 20, 300, 'Back'],
-                        [575, 70, 400, 'Power2']
+                        [575, 78, 400, 'Power2']
                     ]);
                 }
                 break;

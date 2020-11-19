@@ -9,32 +9,26 @@ class Card extends Phaser.GameObjects.Sprite {
         this.cardId = id;
         this.tweener = new Tweener(this);
         this.isStatic = false;
-        this.selected=false;
-        this.deckS=false;
 
         this.isPointerOver = false;
         scene.add.existing(this);
+        this.selected = false;
+        this.deckS = false;
+
 
         this.setInteractive();
 
         this.on('pointerdown', function() {
-          if(!deckScene){
-            let msg = new Object();
+            if (!this.deckS) {
+                if (!scene.isGameActive) return;
+                
+                let msg = new Object();
 
-            msg.event = 'SELECT';
-            msg.id = this.cardId;
+                msg.event = 'SELECT';
+                msg.id = this.cardId;
 
-            game.global.socket.send(JSON.stringify(msg));
-          }else{
-            if(!this.selected){
-              this.selected=true
-              this.setScale(1.2);
-            }else{
-              this.selected=false;
-              this.setScale(1);
+                game.global.socket.send(JSON.stringify(msg));
             }
-          }
-
         });
     }
 
