@@ -59,7 +59,8 @@ De igual forma, todas las cartas nuevas se podrán conseguir a través de unas g
 
 Por último, se pasa a mostrar el Business Model Canvas del videojuego: 
 
- 
+![canvas](https://user-images.githubusercontent.com/45218480/99714450-e4b57600-2aa5-11eb-86a3-24cf6857d2d5.png)
+
 
 ## 3. Planificación y Costes 
 
@@ -85,17 +86,12 @@ Por último, cabe decir que, al ser un grupo reducido de personas, la estructura
 
 Desde el comienzo del proyecto hasta la posible fecha de entrega hay aproximadamente unos 50 días. Sin embargo, la mayoría de las tareas son paralelizables, siendo el apartado artístico y el de programación los más tardíos por su nivel de complejidad. En el siguiente esquema se muestra la estimación de tiempo de cada proceso que se ha creído relevante: 
 
- 
-
+![tablatiempo](https://user-images.githubusercontent.com/45218480/99714804-5392cf00-2aa6-11eb-92e4-2aa4e0be00d1.PNG)
  
 
 ### Costes asociados 
 
-Los costes asociados al desarrollo serían únicamente los sueldos de los trabajadores y las posibles licencias que se adquirieran. Debido a que trabajamos de forma remota, costes indirectos como oficina, luz o internet no son aplicables, por lo que nos quedarían estos costes directos: 
-
- 
-
- 
+Los costes asociados al desarrollo serían únicamente los sueldos de los trabajadores y las posibles licencias que se adquirieran. Debido a que trabajamos de forma remota, costes indirectos como oficina, luz o internet no son aplicables, por lo que nos quedarían estos costes directos:  
 
 | Tipo de sueldo \ Miembro| Alejandro | Darío | Dilan | Enrique | Germán | Pablo |
 | -------------  | -------------  | -------------  | -------------  | -------------  | -------------  | -------------  |
@@ -194,15 +190,7 @@ Para más información del personaje se puede ver su ficha de personaje en la ca
 
 La historia transcurrirá en un archipiélago en el que habrá distintos biomas para cada uno de los elementos incluidos en el juego, tanto los iniciales como las sucesivas expansiones, de manera que se aprovecharán todas las partes del mapa. Algo similar hizo Super Smash Bros. Ultimate con un Wallpaper en el que se mostraban los personajes iniciales, pero se dejaba el espacio necesario para incluir aquellos que vendrían en las expansiones. 
 
- 
-
-Mural inicial 
-
- 
-
-Mura final 
-
- 
+![muros](https://user-images.githubusercontent.com/45218480/99714979-905ec600-2aa6-11eb-8861-f4fd35e8804b.PNG)
 
 En cuanto al gameplay, estos diferentes entornos se verán reflejados en los tableros que el jugador puede comprar, teniendo cada elemento su tablero distintivo que sólo influirá a nivel visual. 
 
@@ -214,9 +202,7 @@ En cuanto al gameplay, estos diferentes entornos se verán reflejados en los tab
 
 El estilo visual que va a seguir el juego va a ser pixel-art. Se va a optar por este estilo debido a que es el más sencillo y rápido de realizar y, además, es muy vistoso. Al tener que hacer un total de 48 cartas, si se siguiera un estilo más realista o elaborado, llevaría demasiado tiempo para completarlas todas. Sin embargo, no va a ser un pixel-art simple, sino que será uno más desarrollado y con el que se pueden apreciar los detalles, como ocurre con Blasphemous.  
 
- 
-
-Estilo pixel-art que se va a seguir 
+![pixelart](https://user-images.githubusercontent.com/45218480/99715085-b1bfb200-2aa6-11eb-92c4-2b3267820b71.PNG)
 
 Por otro lado, a cada baraja se le va a dar una estética determinada atendiendo a su temática. La baraja de fuego tendrá una paleta de colores muy llamativa, con rojos, naranjas y amarrillos; mientras que la baraja de tierra tendrá colores muy apagados y sobrios, morados oscuros y marrones. Se va a intentar también que las paletas encajen con las personalidades de los dioses, siendo la de Leviores muy enérgica y violenta, mientras que la de Doton es mucho más huraña, oscura y reclusiva. 
 
@@ -323,3 +309,63 @@ Al ser la fecha de salida 4 días después de finalizar la programación se podr
 ### Tras la salida del juego. Objetivo: duración de vida de 2 años. 
 
 En esta época donde el juego se entiende como un servicio de entretenimiento, la vida de los mismos tiene que ser mucho mayor y para que el juego siga siendo relevante, se deberá de añadir constantemente contenido. Este ha sido especificado en el apartado anterior. 
+
+## 11. Elementos externos usados y Licencias 
+
+- Para el banner inicial de la web del portfolio se ha usado una imagen de esta web: https://pixabay.com/es/images/search/. Todas las imágenes de la web son totalmente gratuitas pudiendo usar las imágenes incluso con fines comerciales. 
+
+- Como plantilla para el portfolio se ha usado esta web: https://themefisher.com/products/kross-creative-portfolio-template que da una plantilla adaptative y responsive, la cual hemos adaptado a nuestra empresa 
+
+### Assets de Audios: 
+
+- Hechizo: https://freesound.org/people/EminYildirim/sounds/541477/ 
+
+- Curación: https://freesound.org/people/Mr._Fritz_/sounds/544015/ 
+
+- Error: https://freesound.org/people/Kastenfrosch/sounds/521973/ 
+
+- Música ingame: https://soundimage.org/fantasy-2/ 
+
+### Licencias 
+
+#### Comunicación: 
+
+- WhatsApp y Discord: para intercambios de mensajes de menor importancia o en los que se busca una respuesta rápida 
+
+- Microsoft Teams: para hacer las reuniones 
+
+ 
+
+#### Almacenamiento: 
+
+- Google Drive: versión gratuita de 15 GB 
+
+- Microsoft Teams: se guardan todos los documentos que se consideren relevantes para el proyecto 
+
+- GitHub: se utiliza de manera similar a Microsoft Teams 
+
+ 
+
+#### Arte: 
+
+- Adobe Photoshop CC 2018: se ha utilizado la versión de myApps.  
+
+- Adobe After Effects CC 2018: se ha utilizado la versión de myApps. Se ha usado para la elaboración de la intro del estudio. 
+
+- Adobe Premiere CC 2018: se ha usado una versión alquilada del mismo. Se ha usado para la elaboración de la intro del estudio. 
+
+- InkScape 1.0.1: software opensource. Se ha usado para la elaboración del logo de la empresa. 
+
+#### Narrativa: 
+
+- Word Online: se ha usado para escribir la historia y las fichas de personajes. 
+
+#### Programación:
+
+- Atom: se ha utilizado como software para la programación de la parte del cliente
+- Phaser: se ha utilizado para la parte de cliente
+- Eclipse: se ha utilizado como software para la parte de servidor
+- Spring: se ha utilizado para programar la parte de Backend
+
+
+
