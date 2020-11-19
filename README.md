@@ -67,17 +67,17 @@ Por último, se pasa a mostrar el Business Model Canvas del videojuego:
 
 El equipo que se ocupará de este proyecto está conformado por 6 personas: 
 
-Germán Calcedo Pérez: actuará como líder de programación y se encargará de dirigir su departamento para que salga el mejor producto posible.  
+- Germán Calcedo Pérez: actuará como líder de programación y se encargará de dirigir su departamento para que salga el mejor producto posible.  
 
-Alejandro Vera López: encargado del apartado artístico del proyecto diseñará la mayoría de las cosas, yendo desde el logo de la empresa hasta estableciendo una estética común para todo el proyecto. 
+- Alejandro Vera López: encargado del apartado artístico del proyecto diseñará la mayoría de las cosas, yendo desde el logo de la empresa hasta estableciendo una estética común para todo el proyecto. 
 
-Pablo Fernández-Vega Padilla: se encargará de la gestión del proyecto escribiendo los diferentes documentos y entablando la relación con el Product Owner. Por otro lado, será el narrative designer, escribiendo toda la historia del proyecto, así como los personajes principales. Por último, junto con Dilan, se encargará de ajustar las mecánicas del juego para que sean lo más justas y balanceadas posibles. 
+- Pablo Fernández-Vega Padilla: se encargará de la gestión del proyecto escribiendo los diferentes documentos y entablando la relación con el Product Owner. Por otro lado, será el narrative designer, escribiendo toda la historia del proyecto, así como los personajes principales. Por último, junto con Dilan, se encargará de ajustar las mecánicas del juego para que sean lo más justas y balanceadas posibles. 
 
-Dilan Steven Rodríguez Triana: se encargará del game design del juego para hacer un gameplay tanto frenético como equilibrado para la mayor satisfacción posible. También se encargará del apartado de las redes sociales manteniéndolas constantemente activas. 
+- Dilan Steven Rodríguez Triana: se encargará del game design del juego para hacer un gameplay tanto frenético como equilibrado para la mayor satisfacción posible. También se encargará del apartado de las redes sociales manteniéndolas constantemente activas. 
 
-Darío Muñoz Rostami: será programador junto con Germán y Enrique. También se encargará de modelar diferentes elementos en caso de que fueran necesarios. 
+- Darío Muñoz Rostami: será programador junto con Germán y Enrique. También se encargará de modelar diferentes elementos en caso de que fueran necesarios. 
 
-Enrique Corrochano Pardo: será el tercer programador. 
+- Enrique Corrochano Pardo: será el tercer programador. 
 
 Por último, cabe decir que, al ser un grupo reducido de personas, la estructura que se seguirá será algo democrática, donde las ideas sólo se aprobarán si hay una mayoría que piensa que esa idea es adecuada. Por otro lado, también hay mucha versatilidad, por lo que será común que las personas se salgan de su área para ayudar a otra en caso de que fuera necesario. 
 
@@ -97,59 +97,13 @@ Los costes asociados al desarrollo serían únicamente los sueldos de los trabaj
 
  
 
-Alejandro 
+| | Alejandro | Darío | Dilan | Enrique | Germán | Pablo | 
 
-Darío 
+| Sueldo Bruto anual | 32.000 | 33.000 | 35.000 | 33.000 | 37.000 | 45.000 |
 
-Dilan 
+| Sueldo neto anual | 24.468 | 25.123 | 26.436 | 25.123 | 27.747 | 32.643 |
 
-Enrique 
-
-Germán 
-
-Pablo 
-
-Sueldo Bruto anual 
-
-32.000 
-
-33.000 
-
-35.000 
-
-33.000 
-
-37.000 
-
-45.000 
-
-Sueldo neto anual 
-
-24.468 
-
-25.123 
-
-26.436 
-
-25.123 
-
-27.747 
-
-32.643 
-
-Sueldo neto diario 
-
-97,1 
-
-99,69 
-
-104,9 
-
-99,69 
-
-110,11 
-
-129,54 
+| Sueldo neto diario | 97,1 | 99,69 | 104,9 | 99,69 | 110,11 | 129,54 |
 
 Las referencias de los sueldos están en el documento “Enlaces de interés.docx” 
 
@@ -217,21 +171,21 @@ Como ya se ha dicho con anterioridad, la historia en el juego va a tener un pape
 
 ### Personajes 
 
-Arké: Dios de dioses y comandante de las tropas Neutrales. De actitud cansada, es el personaje que desencadena la historia, pero siendo un secundario en la misma. Es un personaje que denota el tedio y el cansancio que supone haber estado siendo el Ser superior. Se muestra indiferente ante la mayoría de las situaciones, como es el caso de esta guerra; esta es una de las principales razones por las que algunos dioses ya querían eliminarle antes de que Él mismo lo anunciara. No es jugable. 
+- Arké: Dios de dioses y comandante de las tropas Neutrales. De actitud cansada, es el personaje que desencadena la historia, pero siendo un secundario en la misma. Es un personaje que denota el tedio y el cansancio que supone haber estado siendo el Ser superior. Se muestra indiferente ante la mayoría de las situaciones, como es el caso de esta guerra; esta es una de las principales razones por las que algunos dioses ya querían eliminarle antes de que Él mismo lo anunciara. No es jugable. 
 
-Leviores: Dios del fuego. Tiene una personalidad muy agresiva y temperamental. Suele perder los estribos rápidamente y no suele estar abierto a discusiones. Es demasiado persistente a la hora de lograr lo que quiere, llegando a no importarle nada más aparte de su objetivo.  
+- Leviores: Dios del fuego. Tiene una personalidad muy agresiva y temperamental. Suele perder los estribos rápidamente y no suele estar abierto a discusiones. Es demasiado persistente a la hora de lograr lo que quiere, llegando a no importarle nada más aparte de su objetivo.  
 
 Para más información del personaje se puede ver su ficha de personaje en la carpeta “Fichas de personaje/Leviores.docx” 
 
-Caeli: Diosa del viento. Es la que tiene la personalidad más alegre de todos. Es bastante juguetona y risueña, bromeando la mayoría de las veces. Sin embargo, este sentido del humor puede llegar a ser muy retorcido llegando a hacer estragos en zonas o seres con tal de reírse. Ella no está interesada en el puesto de Arké, pero participa en la guerra sólo para molestar y reírse de su hermano Leviores. Algunas de los dioses menores de otros elementos la consideran la diosa más sádica de todos, llegando a justificar cataclismos sólo con tal de reírse.  
+- Caeli: Diosa del viento. Es la que tiene la personalidad más alegre de todos. Es bastante juguetona y risueña, bromeando la mayoría de las veces. Sin embargo, este sentido del humor puede llegar a ser muy retorcido llegando a hacer estragos en zonas o seres con tal de reírse. Ella no está interesada en el puesto de Arké, pero participa en la guerra sólo para molestar y reírse de su hermano Leviores. Algunas de los dioses menores de otros elementos la consideran la diosa más sádica de todos, llegando a justificar cataclismos sólo con tal de reírse.  
 
 Para más información del personaje se puede ver su ficha de personaje en la carpeta “Fichas de personaje/Caeli.docx” 
 
-Doton: Dios de la tierra. Se le considera el primer hijo de Arké por su apariencia anciana, cosa que no es cierta ya que la primogénita es Pluviam. Tiene una actitud similar a la de Arké, denota cansancio y hastío. Muchos no entienden por qué está en la guerra ya que consideran que no habría ningún cambio y que provocaría una segunda. Vive recluido debajo de la gran montaña, lo que lo ha aislado del resto de dioses durante mucho tiempo. Este hecho puede haber provocado su actitud solitaria y huraña que no tiene su padre.  
+- Doton: Dios de la tierra. Se le considera el primer hijo de Arké por su apariencia anciana, cosa que no es cierta ya que la primogénita es Pluviam. Tiene una actitud similar a la de Arké, denota cansancio y hastío. Muchos no entienden por qué está en la guerra ya que consideran que no habría ningún cambio y que provocaría una segunda. Vive recluido debajo de la gran montaña, lo que lo ha aislado del resto de dioses durante mucho tiempo. Este hecho puede haber provocado su actitud solitaria y huraña que no tiene su padre.  
 
 Para más información del personaje se puede ver su ficha de personaje en la carpeta “Fichas de personaje/Doton.docx” 
 
-Pluviam: Diosa del agua. Es la mayor de todos los dioses, aunque no lo aparenta ni por su físico ni por su actitud vivaz. Es una de las diosas más atrevidas y sin tapujos a la hora de hablar. Comparte cierto sentido del humor con su hermana Caeli, pero también tiene características similares con Leviores, como una cierta agresividad (aunque en ambos casos no llega a la de sendos hermanos). Pluviam se autodefine como la diosa de la vida, aunque el resto de los dioses la consideran más libidinosa que vivaz. Afirmación que se ve resaltada debido a su vástago, Geiser, con su hermano Leviores.  
+- Pluviam: Diosa del agua. Es la mayor de todos los dioses, aunque no lo aparenta ni por su físico ni por su actitud vivaz. Es una de las diosas más atrevidas y sin tapujos a la hora de hablar. Comparte cierto sentido del humor con su hermana Caeli, pero también tiene características similares con Leviores, como una cierta agresividad (aunque en ambos casos no llega a la de sendos hermanos). Pluviam se autodefine como la diosa de la vida, aunque el resto de los dioses la consideran más libidinosa que vivaz. Afirmación que se ve resaltada debido a su vástago, Geiser, con su hermano Leviores.  
 
 Para más información del personaje se puede ver su ficha de personaje en la carpeta “Fichas de personaje/Pluviam.docx” 
 
@@ -279,13 +233,13 @@ Otro elemento a destacar es el tablero de juego. Se ha intentado seguir una est�
 
 Se van a hacer una serie de pequeñas animaciones con el fin de dar un feedback al jugador. Las animaciones van a ser muy simples y se van a hacer por código ya que son movimientos de cartas por la pantalla. Se va a introducir: 
 
-Una animación para cuando se invoque, la carta tirada irá hasta su zona y pasará a colocarse sola 
+- Una animación para cuando se invoque, la carta tirada irá hasta su zona y pasará a colocarse sola 
 
-Una animación para cuando se descarte, cuando haya que mandar una carta de la mano al cementerio, se hará una animación para que se vea 
+- Una animación para cuando se descarte, cuando haya que mandar una carta de la mano al cementerio, se hará una animación para que se vea 
 
-Una animación para cuando se destruya, una carta usada o una invocación destruida, hará un recorrido que irá desde su posición hasta el cementerio 
+- Una animación para cuando se destruya, una carta usada o una invocación destruida, hará un recorrido que irá desde su posición hasta el cementerio 
 
-Una animación para cuando el jugador se quede sin cartas para robar, se mostrará todas las cartas del cementerio yendo hacia el mazo. 
+- Una animación para cuando el jugador se quede sin cartas para robar, se mostrará todas las cartas del cementerio yendo hacia el mazo. 
 
 ## 7. Sonido 
 
@@ -327,11 +281,11 @@ Este apartado se va a usar para concentrar todos los planes futuros del proyecto
 
 Por otro lado, el modo desafío, al igual que la monetización, no tendría sentido añadirse en la fase inicial ya que su objetivo es que el jugador consiga gemas y, por extensión, cartas nuevas. Este modo desafío impondrá tres retos con tres dificultades distintas que se deben completar en una semana y se darán gemas en base al número de retos que se haya completado y su dificultad. Un ejemplo sería: 
 
-Reto 1: Derrota a un rival. (30 gemas) 
+- Reto 1: Derrota a un rival. (30 gemas) 
 
-Reto 2: Invoca a la diosa Pluviam al menos 2 veces en una partida (75 gemas) 
+- Reto 2: Invoca a la diosa Pluviam al menos 2 veces en una partida (75 gemas) 
 
-Reto 3: Derrota a 5 rivales sin haber perdido un solo punto de cristal (170 gemas) 
+- Reto 3: Derrota a 5 rivales sin haber perdido un solo punto de cristal (170 gemas) 
 
 En el caso de que se consiguieran los 3 retos, el jugador se llevaría 275 gemas, si sólo consigue los dos primeros 105 y si fuera sólo el primero, 30 gemas. Cabe añadir que, por cada primera partida diaria, se dará al jugador 2 gemas si pierde o 5 gemas si gana, para incentivar a los jugadores a que al menos dediquen 10 minutos diarios al juego. 
 
