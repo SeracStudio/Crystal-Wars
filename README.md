@@ -109,7 +109,8 @@ Por otro lado, cabe mencionar que los programas de pago que se usen, se usará s
 
  
 
-## 4. Mecánicas de Juego y Elementos de Juego (personajes (nº) y sus mecánicas, escenarios que hacen, número de assets que se necesitan para el escenario, módulos que se necesitan (esquinas, central, etcétera) 
+## 4. Mecánicas de Juego y Elementos de Juego 
+
 
 ### Descripción detallada del concepto de juego 
 
