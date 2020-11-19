@@ -18,6 +18,7 @@ public class Player {
 	public final PlayerState TURN_STATE;
 	public final PlayerState GAME_STATE;
 	public Player ENEMY;
+	public boolean hasUsedCrystalButton;
 
 	// Game State
 	public int health, mana;
@@ -37,10 +38,10 @@ public class Player {
 		health = MAX_HEALTH;
 		mana = 0;
 
-		_deck = new CardGroup(17);
-		_hand = new CardGroup(6);
-		_graveyard = new CardGroup(17);
-		_field = new CardGroup(2);
+		_deck = new CardGroup(this, CardSite.DECK, 17);
+		_hand = new CardGroup(this, CardSite.HAND, 6);
+		_graveyard = new CardGroup(this, CardSite.GRAVEYARD, 17);
+		_field = new CardGroup(this, CardSite.FIELD, 2);
 	}
 
 	public void heal(int amount) {
@@ -50,7 +51,7 @@ public class Player {
 		health += amount;
 
 		TURN_STATE.healed += amount;
-		REGISTER.register(ID, "HEALTH", "+" + amount);
+		REGISTER.register(ID, "HEALTH", String.valueOf(health));
 	}
 
 	public void damage(int amount, Player source) {
@@ -61,10 +62,10 @@ public class Player {
 		}
 
 		TURN_STATE.damageTaken += amount;
-		REGISTER.register(ID, "HEALTH", "-" + amount);
+		REGISTER.register(ID, "HEALTH", String.valueOf(health));
 
 		if (health <= 0) {
-			REGISTER.register(ENEMY.ID, "WINNER", String.valueOf(ENEMY.ID));
+			ROOM.declareWinner(this);
 		}
 	}
 
@@ -91,43 +92,65 @@ public class Player {
 	}
 
 	public void draw(int nCards) {
-		if (_deck.GROUP.isEmpty()) {
-			_deck.addCards(_graveyard.getAllCards());
-			REGISTER.register(ID, "DECK RESET", String.valueOf(ID));
-		}
-
 		ArrayList<Card> drawnCards = _deck.getCards(nCards);
 		_hand.addCards(drawnCards);
 
+		if(drawnCards.isEmpty()) {
+			return;
+		}
+		
 		TURN_STATE.lastDrawnCard = drawnCards.get(drawnCards.size() - 1);
 
-		String register = "";
 		for (Card card : drawnCards) {
-			register += card.ID.ID + " ";
-		}
-		REGISTER.register(ID, "DRAW", register);
+			REGISTER.register(ID, "DRAW", String.valueOf(card.ID.ID));
+		}		
+
+		if(_deck.GROUP.isEmpty())
+			REGISTER.register(this.ID, "DECK EMPTY", String.valueOf(this.ID));
+		
+		_hand.limitTest(Compare.GREATER);
 	}
 
 	public void draw(CardCollection ID) {
 		Card drawnCard = _deck.getCard(ID);
 		_hand.addCard(drawnCard);
 
+		if(drawnCard == null) {
+			return;
+		}
+		
 		TURN_STATE.lastDrawnCard = drawnCard;
 		REGISTER.register(this.ID, "DRAW", String.valueOf(drawnCard.ID.ID));
+		
+		if(_deck.GROUP.isEmpty())
+			REGISTER.register(this.ID, "DECK EMPTY", String.valueOf(this.ID));
+		
+		_hand.limitTest(Compare.GREATER);
 	}
 
 	public void draw(CardType type) {
 		Card drawnCard = _deck.getRandomTypeCard(type);
 		_hand.addCard(drawnCard);
 
+		if(drawnCard == null) {
+			return;
+		}
+		
 		TURN_STATE.lastDrawnCard = drawnCard;
 		REGISTER.register(ID, "DRAW", String.valueOf(drawnCard.ID.ID));
+		
+		if(_deck.GROUP.isEmpty())
+			REGISTER.register(this.ID, "DECK EMPTY", String.valueOf(this.ID));
+		
+		_hand.limitTest(Compare.GREATER);
 	}
 
 	public void destroy(Card card) {
 		_field.GROUP.remove(card);
 		_graveyard.addCard(card);
 
+		TURN_STATE.lastDestroyedCard = card;
+		
 		REGISTER.register(ID, "DESTROY", String.valueOf(card.ID.ID));
 		ROOM.activateEffectsOn(EffectOn.DESTROY, card);
 	}
@@ -136,8 +159,16 @@ public class Player {
 		_hand.GROUP.remove(card);
 		_graveyard.addCard(card);
 
+		TURN_STATE.discardedCards++;
+		
 		REGISTER.register(ID, "DISCARD", String.valueOf(card.ID.ID));
 		ROOM.activateEffectsOn(EffectOn.DISCARD, card);
 	}
-
+	
+	public void deal() {
+		draw(CardType.MANA);
+		draw(CardType.MANA);
+		draw(CardType.SPELL);
+		draw(CardType.SUMMONING);
+	}
 }

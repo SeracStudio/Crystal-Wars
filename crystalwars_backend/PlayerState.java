@@ -11,7 +11,7 @@ public class PlayerState{
     public int graveyardCards;
     public Card lastPeekedCard;
     public Card lastDrawnCard;
-    public Card lastTributedCard;
+    public Card lastDestroyedCard;
     
     public PlayerState(){
         reset();
@@ -27,7 +27,7 @@ public class PlayerState{
         graveyardCards = 0;
         lastPeekedCard = null;
         lastDrawnCard = null;
-        lastTributedCard = null;
+        lastDestroyedCard = null;
     }
     
     public void add(PlayerState ps){

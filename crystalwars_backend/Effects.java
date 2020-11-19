@@ -127,10 +127,11 @@ class Peek extends PlayerTargetEffect {
 		if (nHandCards == 0) {
 			return;
 		}
-		int randomCardNumber = new Random().nextInt(nHandCards) + 1;
+		int randomCardNumber = new Random().nextInt(nHandCards);
 
-		solvedTarget.TURN_STATE.lastPeekedCard = solvedTarget._hand.GROUP.get(randomCardNumber);
-		SOURCE.owner.REGISTER.register(SOURCE.owner.ID, "PEEK", solvedTarget.TURN_STATE.lastPeekedCard.ID.toString());
+		solvedTarget.ENEMY.TURN_STATE.lastPeekedCard = solvedTarget._hand.GROUP.get(randomCardNumber);
+		SOURCE.owner.REGISTER.register(SOURCE.owner.ID, "PEEK",
+				String.valueOf(solvedTarget.ENEMY.TURN_STATE.lastPeekedCard.ID.ID));
 	}
 }
 
@@ -155,9 +156,12 @@ class MoveCard extends PlayerTargetEffect {
 		solvedFrom = FROM.solve(solvedTarget);
 		solvedTo = TO.solve(solvedTarget);
 		Card movedCard = solvedFrom.getCard(CARD);
+
+		if (movedCard == null)
+			return;
+
 		solvedTo.addCard(movedCard);
-		SOURCE.owner.REGISTER.register(SOURCE.owner.ID, "MOVE",
-				movedCard.ID.toString() + " " + FROM.toString() + " " + TO.toString());
+		SOURCE.owner.REGISTER.register(SOURCE.owner.ID, "MOVE " + FROM + " " + TO, String.valueOf(movedCard.ID.ID));
 	}
 }
 
@@ -178,7 +182,7 @@ class Summon extends PlayerTargetEffect {
 		if (FROM.solve(solvedTarget).contains(ID)) {
 			Card summonedCard = FROM.solve(solvedTarget).getCard(ID);
 			solvedTarget._field.addCard(summonedCard);
-			SOURCE.owner.REGISTER.register(SOURCE.owner.ID, "SUMMON", summonedCard.ID.toString());
+			SOURCE.owner.REGISTER.register(SOURCE.owner.ID, "SUMMON", String.valueOf(summonedCard.ID.ID));
 		}
 	}
 }
@@ -201,6 +205,7 @@ class Destroy extends CardTargetEffect {
 	public Destroy(EffectOn effectOn, Target target) {
 		super(effectOn, target);
 		SELECT_CONDITIONS.add(new CardPresentOn(Target.ENEMY, CardCollection.SELECT, CardSite.FIELD));
+		selectNotification = "Destruye una invocación enemiga.";
 	}
 
 	@Override
@@ -216,6 +221,7 @@ class Tribute extends CardTargetEffect {
 	public Tribute(EffectOn effectOn, Target target) {
 		super(effectOn, target);
 		SELECT_CONDITIONS.add(new CardPresentOn(Target.PLAYER, CardCollection.SELECT, CardSite.FIELD));
+		selectNotification = "Destruye una invocación aliada.";
 	}
 
 	@Override
@@ -231,13 +237,24 @@ class Discard extends CardTargetEffect {
 	public Discard(EffectOn effectOn, Target target) {
 		super(effectOn, target);
 		SELECT_CONDITIONS.add(new CardPresentOn(Target.PLAYER, CardCollection.SELECT, CardSite.HAND));
+		selectNotification = "Descarta 1 carta.";
 	}
 
 	@Override
 	public void activate() {
 		super.activate();
-		Player targetPlayer = solvedTarget.owner;
-		targetPlayer.discard(solvedTarget);
+
+		if (TARGET == Target.AUTO) {
+			int nHandCards = SOURCE.owner.ENEMY._hand.GROUP.size();
+			if (nHandCards == 0) {
+				return;
+			}
+			int randomCardNumber = new Random().nextInt(nHandCards);
+			SOURCE.owner.ENEMY.discard(SOURCE.owner.ENEMY._hand.GROUP.get(randomCardNumber));
+		} else {
+			Player targetPlayer = solvedTarget.owner;
+			targetPlayer.discard(solvedTarget);
+		}
 	}
 }
 

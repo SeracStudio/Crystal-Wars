@@ -9,6 +9,7 @@ public abstract class BaseEffect implements Serializable {
 	public final EffectOn EFFECT_ON;
 	public final Target TARGET;
 	public final ArrayList<CardPresentOn> SELECT_CONDITIONS;
+	public String selectNotification;
 	public final ArrayList<BaseCondition> CONDITIONS;
 	public final ArrayList<BaseModifier> MODIFIERS;
 	public boolean hasActivated;
@@ -33,7 +34,8 @@ public abstract class BaseEffect implements Serializable {
 		if (!CONDITIONS.stream().noneMatch((cond) -> (!cond.check()))) {
 			return hasActivated;
 		}
-		return hasActivated = true;
+		hasActivated = true;
+   		return hasActivated;
 	}
 
 	public int getModifier() {

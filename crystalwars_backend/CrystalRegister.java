@@ -25,7 +25,7 @@ public class CrystalRegister {
 
 		@Override
 		public String toString() {
-			return "[" + ROOM.ROOM_ID + ": " + order + "] -> Player " + playerID + " -> " + update + ": " + data;
+			return "[" + ROOM.ROOM_ID + ": " + order + "] -> Player ID: " + playerID + " -> " + update + ": " + data;
 		}
 	}
 

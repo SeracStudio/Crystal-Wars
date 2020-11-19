@@ -5,18 +5,29 @@ import java.util.Collections;
 
 public class CardGroup {
 
+	private final Player owner;
+	private final CardSite site;
 	public final int MAX_CARDS;
 	public final ArrayList<Card> GROUP;
 
-	public CardGroup(int maxCards) {
+	public CardGroup(Player owner, CardSite site, int maxCards) {
+		this.site = site;
+		this.owner = owner;
 		MAX_CARDS = maxCards;
 		GROUP = new ArrayList<>();
 	}
 
 	public void addCard(Card card) {
-		if (card == null || GROUP.size() == MAX_CARDS) {
+		if (card == null) {
 			return;
 		}
+
+		if (site == CardSite.FIELD)
+			limitTest(Compare.GREATER_OR_EQUALS);
+		
+		if(site == CardSite.GRAVEYARD && card.CARD_TYPE != CardType.MANA)
+			owner.TURN_STATE.graveyardCards++;
+
 		GROUP.add(card);
 	}
 
@@ -24,11 +35,18 @@ public class CardGroup {
 		if (cards.isEmpty()) {
 			return;
 		}
+
 		GROUP.addAll(cards);
 	}
 
 	public void removeCard(Card card) {
 		GROUP.remove(card);
+	}
+
+	public void limitTest(Compare comparator) {	
+		while (comparator.compare(GROUP.size(), MAX_CARDS)) {
+			owner.ROOM.forceRemoveFrom(owner, site);
+		}
 	}
 
 	public Card getCard(CardCollection ID) {
@@ -41,10 +59,10 @@ public class CardGroup {
 
 		return null;
 	}
-	
+
 	public ArrayList<Card> getCards(int nCards) {
 		ArrayList<Card> drawnCards = new ArrayList<>();
-		
+
 		for (int i = 0; i < nCards; i++) {
 			if (!GROUP.isEmpty()) {
 				drawnCards.add(GROUP.remove(GROUP.size() - 1));
@@ -54,17 +72,17 @@ public class CardGroup {
 		return drawnCards;
 	}
 
-
 	public ArrayList<Card> getAllCards() {
 		ArrayList<Card> drawnCards = new ArrayList<>();
 
-		for (int i = 0; i < GROUP.size(); i++) {
-			drawnCards.add(GROUP.remove(GROUP.size() - 1));
+		for (Card card : GROUP) {
+			drawnCards.add(card);
 		}
+		GROUP.clear();
 
 		return drawnCards;
 	}
-	
+
 	public Card getRandomTypeCard(CardType TYPE) {
 		for (Card card : GROUP) {
 			if (card.CARD_TYPE == TYPE) {

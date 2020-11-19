@@ -22,7 +22,8 @@ enum Target{
     PLAYER,
     ENEMY,
     SELF,
-    SELECT;
+    SELECT,
+    AUTO;
 }
 
 enum CardSite{

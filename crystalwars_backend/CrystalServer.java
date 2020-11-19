@@ -34,11 +34,21 @@ public class CrystalServer extends TextWebSocketHandler {
 		player.SESSION.sendMessage(new TextMessage(msg.toString()));
 
 		PLAYERS.put(player.ID, player);
+		System.out.println("Player " + player.ID + " has connected. Online Players: " + PLAYERS.size());
 	}
 
 	@Override
 	public void afterConnectionClosed(WebSocketSession session, CloseStatus status) throws Exception {
-		Player player = (Player) session.getAttributes().get(PLAYER_ATTRIBUTE);
+		Player player;
+		synchronized (SERVER) {
+			player = (Player) session.getAttributes().get(PLAYER_ATTRIBUTE);
+		}
+
+		if (!ROOMS.containsKey(player.ROOM_ID))
+			return;
+		ROOMS.get(player.ROOM_ID).declareWinner(player);
+		ROOMS.remove(player.ROOM_ID);
+
 		PLAYERS.remove(player.ID);
 	}
 
@@ -56,8 +66,18 @@ public class CrystalServer extends TextWebSocketHandler {
 
 			switch (node.get("event").asText()) {
 
+			case "LEAVE":
+				PLAYERS.remove(player.ID);
+				System.out.println("Player " + player.ID + " has disconnected. Online Players: " + PLAYERS.size());
+				if (!ROOMS.containsKey(player.ROOM_ID) || player.ENEMY == null)
+					break;
+				ROOMS.get(player.ROOM_ID).declareWinner(player);
+				ROOMS.remove(player.ROOM_ID);
+				break;
+
 			case "CREATE":
-				CrystalRoom newRoom = new CrystalRoom();
+				System.out.println(node.get("mode").asText());
+				CrystalRoom newRoom = new CrystalRoom(node.get("mode").asText().equals("FAST"));
 				ROOMS.put(newRoom.ROOM_ID, newRoom);
 				newRoom.addPlayer(player, node.get("deck").asText());
 				msg.put("event", "CREATE");
@@ -76,6 +96,11 @@ public class CrystalServer extends TextWebSocketHandler {
 						msg.put("room", "FILLED");
 					} else {
 						msg.put("room", joinRoom.ROOM_ID);
+						if (joinRoom.fastMode) {
+							msg.put("mode", "FAST");
+						} else {
+							msg.put("mode", "NORMAL");
+						}
 					}
 				}
 				player.SESSION.sendMessage(new TextMessage(msg.toString()));
@@ -89,26 +114,23 @@ public class CrystalServer extends TextWebSocketHandler {
 				break;
 
 			case "PLAY":
-				if (!ROOMS.get(player.ROOM_ID).play(player, node.get("id").asText())) {
-					msg.put("event", "PLAY");
-					msg.put("id", "ERROR");
-					player.SESSION.sendMessage(new TextMessage(msg.toString()));
-				}
+				ROOMS.get(player.ROOM_ID).play(player, node.get("id").asText());
 				break;
 
 			case "SELECT":
-				if (!ROOMS.get(player.ROOM_ID).select(player, node.get("id").asText())) {
-					msg.put("event", "SELECT");
-					msg.put("id", "ERROR");
-					player.SESSION.sendMessage(new TextMessage(msg.toString()));
-				}
+				ROOMS.get(player.ROOM_ID).select(player, node.get("id").asText());
 				break;
 
 			case "END TURN":
 				ROOMS.get(player.ROOM_ID).switchTurn(player);
 				break;
 
+			case "CRYSTAL BUTTON":
+				ROOMS.get(player.ROOM_ID).activateCrystalButton(player);
+				break;
+
 			default:
+				System.out.println(node.get("event").toString());
 				break;
 			}
 

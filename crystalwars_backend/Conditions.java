@@ -80,6 +80,7 @@ class EffectChain extends BaseCondition{
 
     @Override
     public boolean check() {
+    	//System.out.println(EFFECT.hasActivated + ", " + CHAINED + ", " + String.valueOf(EFFECT.hasActivated == CHAINED));
         return EFFECT.hasActivated == CHAINED;
     }
 }

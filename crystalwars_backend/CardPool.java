@@ -81,20 +81,18 @@ public class CardPool{
 		c6.addEffect(new Heal(EffectOn.PLAYER_SPELL, Target.PLAYER, 1));
 		POOL.put(c6.ID, c6);
 
-		Card c7 = new Card(CardCollection.OSTRA_POTENCIADORA, CardType.SUMMONING, 1);
+		Card c7 = new Card(CardCollection.OSTRA_REFUERZO, CardType.SUMMONING, 1);
 		c7.addEffect(new AddMana(EffectOn.PLAYER_MANA, Target.PLAYER, 1));
 		POOL.put(c7.ID, c7);
 
 		Card c8 = new Card(CardCollection.ORACULO_DEL_OCEANO, CardType.SUMMONING, 2);
 		c8.addEffect(new Peek(EffectOn.TURN_START, Target.ENEMY));
-		Damage c8_e1 = new Damage(EffectOn.TURN_START, Target.ENEMY, 0);
+		AddMana c8_e1 = new AddMana(EffectOn.TURN_START, Target.PLAYER, 0);
 		c8_e1.MODIFIERS.add(new LastPeekedCardCost(MemorySpan.TURN, Target.PLAYER, Mode.ADD));
 		c8.addEffect(c8_e1);
 		POOL.put(c8.ID, c8);
 
 		Card c9 = new Card(CardCollection.GEISER, CardType.SUMMONING, 2);
-		c9.addEffect(new Damage(EffectOn.PLAY, Target.ENEMY, 2));
-		c9.addEffect(new Damage(EffectOn.PLAY, Target.PLAYER, 1));
 		c9.addEffect(new Damage(EffectOn.PLAYER_SUMMONING, Target.ENEMY, 2));
 		c9.addEffect(new Damage(EffectOn.PLAYER_SUMMONING, Target.PLAYER, 1));
 		c9.addEffect(new Damage(EffectOn.ENEMY_SUMMONING, Target.ENEMY, 2));
@@ -117,6 +115,7 @@ public class CardPool{
 		POOL.put(c12.ID, c12);
 
 		Card c13 = new Card(CardCollection.CALDERO_DE_LAVA, CardType.SPELL, 1);
+		c13.PLAY_CONDITIONS.add(new StaticPlayerCompare(Target.ENEMY, CurrentState.SUMMONINGS, Compare.GREATER, 0));
 		c13.addEffect(new Damage(EffectOn.PLAY, Target.PLAYER, 2));
 		Destroy c13_e1 = new Destroy(EffectOn.PLAY, Target.SELECT);
 		c13.addEffect(c13_e1);
@@ -149,9 +148,6 @@ public class CardPool{
 		POOL.put(c18.ID, c18);
 
 		Card c19 = new Card(CardCollection.IGNIS, CardType.SUMMONING, 2);
-		CostChange c19_e1 = new CostChange(EffectOn.PRE_PLAY, Target.SELF, 0);
-		c19_e1.MODIFIERS
-				.add(new OnMemory(MemorySpan.TURN, Target.PLAYER, MemoryState.SELF_DAMAGE_TAKEN, Mode.SUBTRACT));
 		Damage c19_e2 = new Damage(EffectOn.TURN_END, Target.ENEMY, 0);
 		c19_e2.MODIFIERS.add(new OnMemory(MemorySpan.TURN, Target.PLAYER, MemoryState.SELF_DAMAGE_TAKEN, Mode.ADD));
 		c19.addEffect(c19_e2);
@@ -187,12 +183,11 @@ public class CardPool{
 		POOL.put(c24.ID, c24);
 
 		Card c25 = new Card(CardCollection.SILBATO_CEFIRO, CardType.SPELL, 1);
-		c25.PLAY_CONDITIONS.add(new StaticPlayerCompare(Target.PLAYER, CurrentState.CARDS_ON_HAND, Compare.GREATER, 0));
+		c25.PLAY_CONDITIONS.add(new StaticPlayerCompare(Target.PLAYER, CurrentState.CARDS_ON_HAND, Compare.GREATER, 1));
 		Discard c25_e1 = new Discard(EffectOn.PLAY, Target.SELECT);
 		// c25_e1.SELECT_CONDITIONS.add(new CardPresentOn(Target.PLAYER,
 		// CardCollection.SELECT, CardSite.HAND));
 		DrawSpecific c25_e2 = new DrawSpecific(EffectOn.PLAY, Target.PLAYER, CardCollection.CAELI);
-		c25_e2.CONDITIONS.add(new EffectChain(Target.PLAYER, c25_e1, true));
 		c25.addEffect(c25_e1);
 		c25.addEffect(c25_e2);
 		POOL.put(c25.ID, c25);
@@ -214,16 +209,12 @@ public class CardPool{
 		POOL.put(c26.ID, c26);
 
 		Card c27 = new Card(CardCollection.PERIPLO_EFIMERO, CardType.SPELL, 1);
-		c27.PLAY_CONDITIONS.add(new StaticPlayerCompare(Target.PLAYER, CurrentState.CARDS_ON_HAND, Compare.GREATER, 1));
+		c27.PLAY_CONDITIONS.add(new StaticPlayerCompare(Target.PLAYER, CurrentState.CARDS_ON_HAND, Compare.GREATER, 2));
 		Discard c27_e1 = new Discard(EffectOn.PLAY, Target.SELECT);
-		// c27_e1.SELECT_CONDITIONS.add(new CardPresentOn(Target.PLAYER,
-		// CardCollection.SELECT, CardSite.HAND));
 		Discard c27_e2 = new Discard(EffectOn.PLAY, Target.SELECT);
-		// c27_e2.SELECT_CONDITIONS.add(new CardPresentOn(Target.PLAYER,
-		// CardCollection.SELECT, CardSite.HAND));
-		c27.addEffect(new Draw(EffectOn.PLAY, Target.PLAYER, 2));
 		c27.addEffect(c27_e1);
 		c27.addEffect(c27_e2);
+		c27.addEffect(new Draw(EffectOn.PLAY, Target.PLAYER, 2));
 		POOL.put(c27.ID, c27);
 
 		Card c28 = new Card(CardCollection.TROTABRISAS, CardType.SUMMONING, 1);
@@ -243,12 +234,14 @@ public class CardPool{
 		// c29_e1.SELECT_CONDITIONS.add(new CardPresentOn(Target.PLAYER,
 		// CardCollection.SELECT, CardSite.HAND));
 		Discard c29_e2 = new Discard(EffectOn.TURN_START, Target.SELECT);
-		c29_e2.CONDITIONS.add(new EffectChain(Target.PLAYER, c29_e2, true));
+		c29_e2.CONDITIONS.add(new EffectChain(Target.PLAYER, c29_e1, true));
 		// c29_e2.SELECT_CONDITIONS.add(new CardPresentOn(Target.PLAYER,
 		// CardCollection.SELECT, CardSite.HAND));
 		Draw c29_e3 = new Draw(EffectOn.TURN_END, Target.PLAYER, 2);
 		c29_e3.CONDITIONS.add(new CardPresentOn(Target.PLAYER, CardCollection.CAELI, CardSite.FIELD));
+		c29_e3.CONDITIONS.add(new EffectChain(Target.PLAYER, c29_e2, true));
 		Damage c29_e4 = new Damage(EffectOn.TURN_END, Target.ENEMY, 2);
+		c29_e4.CONDITIONS.add(new EffectChain(Target.PLAYER, c29_e2, true));
 		c29_e4.CONDITIONS.add(new EffectChain(Target.PLAYER, c29_e3, false));
 		c29.addEffect(c29_e1);
 		c29.addEffect(c29_e2);
@@ -314,8 +307,8 @@ public class CardPool{
 		Tribute c38_e1 = new Tribute(EffectOn.PLAY, Target.SELECT);
 		// c38_e1.SELECT_CONDITIONS.add(new CardPresentOn(Target.PLAYER,
 		// CardCollection.SELECT, CardSite.FIELD));
-		c38.addEffect(new Summon(EffectOn.PLAY, Target.PLAYER, CardCollection.DOTON, CardSite.HAND));
 		c38.addEffect(c38_e1);
+		c38.addEffect(new Summon(EffectOn.PLAY, Target.PLAYER, CardCollection.DOTON, CardSite.HAND));
 		POOL.put(c38.ID, c38);
 
 		Card c39 = new Card(CardCollection.GORE_EL_TORTURADOR, CardType.SUMMONING, 2);
@@ -350,7 +343,8 @@ public class CardPool{
 		POOL.put(c42.ID, c42);
 
 		Card c43 = new Card(CardCollection.ELECCION_DE_DIOS, CardType.SPELL, 1);
-		Discard c43_e1 = new Discard(EffectOn.PLAY, Target.SELECT);
+		c43.PLAY_CONDITIONS.add(new StaticPlayerCompare(Target.ENEMY, CurrentState.CARDS_ON_HAND, Compare.GREATER, 0));
+		Discard c43_e1 = new Discard(EffectOn.PLAY, Target.AUTO);
 		// c43_e1.SELECT_CONDITIONS.add(new CardPresentOn(Target.ENEMY,
 		// CardCollection.SELECT, CardSite.HAND));
 		c43.addEffect(c43_e1);
@@ -365,8 +359,8 @@ public class CardPool{
 		POOL.put(c45.ID, c45);
 
 		Card c46 = new Card(CardCollection.TRUENO_DE_ARKE, CardType.SPELL, 2);
+		c46.PLAY_CONDITIONS.add(new StaticPlayerCompare(Target.ENEMY, CurrentState.SUMMONINGS, Compare.GREATER, 0));
 		Destroy c46_e1 = new Destroy(EffectOn.PLAY, Target.SELECT);
-		c46_e1.CONDITIONS.add(new StaticPlayerCompare(Target.ENEMY, CurrentState.SUMMONINGS, Compare.GREATER, 0));
 		// c46_e1.SELECT_CONDITIONS.add(new CardPresentOn(Target.PLAYER,
 		// CardCollection.SELECT, CardSite.FIELD));
 		// c46_e1.SELECT_CONDITIONS.add(new CardPresentOn(Target.ENEMY,
