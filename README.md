@@ -37,165 +37,23 @@ De igual forma, todas las cartas nuevas se podrán conseguir a través de unas g
 
 ### Tablas de productos y precios 
 
-PRODUCTO 
-
-PRECIO 
-
-GEMAS 
-
-MONEDA INGAME 
-
-TIEMPO INGAME 
-
-80 gemas 
-
-1,99€ 
-
-- 
-
-- 
-
-- 
-
-210 gemas 
-
-4,99€ 
-
-- 
-
-- 
-
-- 
-
-350 gemas 
-
-7,99€ 
-
-- 
-
-- 
-
-- 
-
-715 gemas 
-
-12,99€ 
-
-- 
-
-- 
-
-- 
-
-1100 gemas 
-
-18,99€ 
-
-- 
-
-- 
-
-- 
-
-110 monedas ingame 
-
-2,49€ 
-
-- 
-
-- 
-
-- 
-
-430 monedas ingame 
-
-5,99€ 
-
-- 
-
-- 
-
-- 
-
-980 monedas ingame 
-
-9,99€ 
-
-- 
-
-- 
-
-- 
-
-1560 monedas ingame 
-
-15,99€ 
-
-- 
-
-- 
-
-- 
-
-Tablero personalizado 
-
-- 
-
-- 
-
-1200 
-
-- 
-
-Carta Dios 
-
-- 
-
-400 
-
-700 
-
-10 
-
-Carta Semideidad 
-
-- 
-
-250 
-
-450 
-
-7 
-
-Carta Hechizo, Invocación, Maná o Neutral 
-
-- 
-
-100 
-
-140 
-
-2 
-
-Mazo Completo 
-
-- 
-
-- 
-
-1700 
-
-40 
-
-Pack Cartas Neutrales de Expansión 
-
-- 
-
-- 
-
-900 
-
-20 
+| PRODUCTO | PRECIO | GEMAS | MONEDA INGAME | TIEMPO INGAME |
+| -------------  | -------------  | -------------  | -------------  | -------------  |
+| 80 gemas | 1,99€ | - | - | - |
+| 210 gemas | 4,99€ | - | - | - | 
+| 350 gemas | 7,99€ | - | - | - | 
+| 715 gemas | 12,99€ | - | - | - | 
+| 1100 gemas | 18,99€ | - | - | - | 
+| 110 monedas ingame | 2,49€ | - | - | - |  
+| 430 monedas ingame | 5,99€ | - | - | - |
+| 980 monedas ingame | 9,99€ | - | - | - | 
+| 1560 monedas ingame | 15,99€ | - | - | - |  
+| Tablero personalizado| - | - | 1200 | - |
+| Carta Dios| - | 400 | 700 | 10 | 
+| Carta Semideidad | - | 250 | 450 | 7 |
+| Carta Hechizo, Invocación, Maná o Neutral | - | 100 | 140 | 2 | 
+| Mazo Completo | - | - | 1700 | 40 |
+| Pack Cartas Neutrales de Expansión | - | - | 900 | 20 | 
 
  
 
