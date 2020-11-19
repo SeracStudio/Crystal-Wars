@@ -97,8 +97,8 @@ Los costes asociados al desarrollo serían únicamente los sueldos de los trabaj
 
  
 
-| / | Alejandro | Darío | Dilan | Enrique | Germán | Pablo |
-| -------------  | -------------  | -------------  | -------------  | -------------  |
+| Tipo de sueldo \ Miembro| Alejandro | Darío | Dilan | Enrique | Germán | Pablo |
+| -------------  | -------------  | -------------  | -------------  | -------------  | -------------  | -------------  |
 
 | Sueldo Bruto anual | 32.000 | 33.000 | 35.000 | 33.000 | 37.000 | 45.000 |
 
