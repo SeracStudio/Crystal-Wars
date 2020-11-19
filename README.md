@@ -326,6 +326,10 @@ En esta época donde el juego se entiende como un servicio de entretenimiento, l
 
 - Música ingame: https://soundimage.org/fantasy-2/ 
 
+- Invocación: https://freesound.org/people/FilmmakersManual/sounds/522277/ 
+
+- Barajar Cartas: https://freesound.org/people/VKProduktion/sounds/217501/download/217501__vkproduktion__shuffling-cards-02.wav 
+
 ### Licencias 
 
 #### Comunicación: 
